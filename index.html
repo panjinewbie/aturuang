@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html class="light" lang="id">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Atur Uang - Kejelasan Finansial untuk Masa Depan Anda</title>
-  
+
   <!-- PWA Metadata & Manifest -->
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" href="favicon.png">
   <meta name="theme-color" content="#065f46">
-  
+
   <!-- Google Fonts & Material Symbols -->
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-  
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+
   <!-- Tailwind CSS with custom plugins -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  
+
   <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
@@ -105,59 +108,75 @@
       font-family: 'Hanken Grotesk', sans-serif;
       background-color: #f8f9ff;
     }
+
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
+
     .material-symbols-outlined.fill-1 {
       font-variation-settings: 'FILL' 1;
     }
+
     .glass-card {
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(12px);
     }
+
     .dark .glass-card {
       background: rgba(11, 28, 48, 0.85);
     }
+
     ::-webkit-scrollbar {
       width: 6px;
       height: 6px;
     }
+
     ::-webkit-scrollbar-track {
       background: transparent;
     }
+
     ::-webkit-scrollbar-thumb {
       background: #bec9c2;
       border-radius: 10px;
     }
+
     ::-webkit-scrollbar-thumb:hover {
       background: #6f7973;
     }
+
     .sidebar-transition {
       transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
     .content-transition {
       transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
     .sidebar-minimized #sidebar {
       width: 80px;
     }
+
     .sidebar-minimized #main-content {
       margin-left: 80px;
     }
+
     .sidebar-minimized .sidebar-text,
     .sidebar-minimized .sidebar-header-desc,
     .sidebar-minimized .sidebar-footer {
       display: none;
     }
+
     .sidebar-minimized .sidebar-header h1 {
       font-size: 14px;
       text-align: center;
     }
+
     .sidebar-minimized .sidebar-nav-item {
       justify-content: center;
       padding-left: 0;
       padding-right: 0;
     }
+
     .sidebar-minimized .add-btn {
       width: 48px;
       height: 48px;
@@ -165,33 +184,39 @@
       border-radius: 9999px;
       margin: 0 auto;
     }
+
     .sidebar-minimized .add-btn span:last-child {
       display: none;
     }
-    
+
     /* Login Page Mesh Gradient */
     .bg-mesh {
       background-color: #f8f9ff;
-      background-image: radial-gradient(at 0% 0%, hsla(164,65%,85%,1) 0, transparent 50%), 
-                        radial-gradient(at 100% 100%, hsla(164,65%,95%,1) 0, transparent 50%);
+      background-image: radial-gradient(at 0% 0%, hsla(164, 65%, 85%, 1) 0, transparent 50%),
+        radial-gradient(at 100% 100%, hsla(164, 65%, 95%, 1) 0, transparent 50%);
     }
+
     .dark .bg-mesh {
       background-color: #0b1c30;
-      background-image: radial-gradient(at 0% 0%, hsla(164,40%,20%,1) 0, transparent 50%), 
-                        radial-gradient(at 100% 100%, hsla(164,45%,15%,1) 0, transparent 50%);
+      background-image: radial-gradient(at 0% 0%, hsla(164, 40%, 20%, 1) 0, transparent 50%),
+        radial-gradient(at 100% 100%, hsla(164, 45%, 15%, 1) 0, transparent 50%);
     }
   </style>
 </head>
+
 <body class="bg-background text-on-background min-h-screen font-hanken">
 
   <!-- ==================== LOCK SCREEN VIEW ==================== -->
-  <div id="lock-screen" class="bg-mesh min-h-screen flex flex-col z-[100] fixed inset-0 transition-transform duration-500">
-    <header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 border-b border-outline-variant/30">
+  <div id="lock-screen"
+    class="bg-mesh min-h-screen flex flex-col z-[100] fixed inset-0 transition-transform duration-500">
+    <header
+      class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 border-b border-outline-variant/30">
       <div class="flex items-center gap-sm">
         <span class="text-headline-md font-bold text-primary dark:text-on-primary-container">Atur Uang</span>
       </div>
       <div class="flex items-center gap-md">
-        <button onclick="toggleDarkMode()" class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low transition-colors p-2 rounded-full">dark_mode</button>
+        <button onclick="toggleDarkMode()"
+          class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low transition-colors p-2 rounded-full">dark_mode</button>
         <span class="text-label-md font-medium text-on-surface-variant">v1.2.0</span>
       </div>
     </header>
@@ -201,20 +226,26 @@
         <section class="hidden md:flex flex-col gap-lg pr-lg">
           <div class="space-y-md">
             <h1 class="text-display-lg font-bold text-on-background leading-tight">
-              Kejelasan Finansial untuk <span class="text-primary dark:text-on-primary-container">Masa Depan Anda</span>.
+              Kejelasan Finansial untuk <span class="text-primary dark:text-on-primary-container">Masa Depan
+                Anda</span>.
             </h1>
             <p class="text-body-lg text-on-surface-variant max-w-[500px]">
-              Kelola aset, lacak pengeluaran, dan rencanakan anggaran Anda dengan presisi profesional. Keamanan dan transparansi dalam satu platform.
+              Kelola aset, lacak pengeluaran, dan rencanakan anggaran Anda dengan presisi profesional. Keamanan dan
+              transparansi dalam satu platform.
             </p>
           </div>
           <div class="grid grid-cols-2 gap-md pt-md">
             <div class="p-md border border-outline-variant/40 bg-white dark:bg-inverse-surface rounded-xl">
-              <span class="material-symbols-outlined text-primary dark:text-on-primary-container text-[32px] mb-sm">shield</span>
-              <h3 class="text-label-md font-bold text-on-surface dark:text-inverse-on-surface">Penyimpanan Terenkripsi</h3>
-              <p class="text-body-sm text-on-surface-variant">Sinkronisasi aman menggunakan Google Sheets Anda sendiri.</p>
+              <span
+                class="material-symbols-outlined text-primary dark:text-on-primary-container text-[32px] mb-sm">shield</span>
+              <h3 class="text-label-md font-bold text-on-surface dark:text-inverse-on-surface">Penyimpanan Terenkripsi
+              </h3>
+              <p class="text-body-sm text-on-surface-variant">Sinkronisasi aman menggunakan Google Sheets Anda sendiri.
+              </p>
             </div>
             <div class="p-md border border-outline-variant/40 bg-white dark:bg-inverse-surface rounded-xl">
-              <span class="material-symbols-outlined text-primary dark:text-on-primary-container text-[32px] mb-sm">insights</span>
+              <span
+                class="material-symbols-outlined text-primary dark:text-on-primary-container text-[32px] mb-sm">insights</span>
               <h3 class="text-label-md font-bold text-on-surface dark:text-inverse-on-surface">Grafik Interaktif</h3>
               <p class="text-body-sm text-on-surface-variant">Laporan pemasukan & pengeluaran dinamis seketika.</p>
             </div>
@@ -223,43 +254,60 @@
 
         <!-- Login Card -->
         <section class="flex justify-center md:justify-end">
-          <div class="bg-white dark:bg-inverse-surface border border-outline-variant/50 w-full max-w-[440px] p-xl rounded-xl shadow-lg transition-all">
+          <div
+            class="bg-white dark:bg-inverse-surface border border-outline-variant/50 w-full max-w-[440px] p-xl rounded-xl shadow-lg transition-all">
             <div class="flex flex-col items-center mb-xl text-center">
-              <img id="login-logo" alt="Atur Uang Logo" class="h-20 w-auto mb-md rounded-xl shadow-sm border border-outline-variant/20" src="favicon.png">
-              <h2 class="text-headline-md font-bold text-on-background dark:text-inverse-on-surface">Selamat Datang Kembali</h2>
+              <img id="login-logo" alt="Atur Uang Logo"
+                class="h-20 w-auto mb-md rounded-xl shadow-sm border border-outline-variant/20" src="favicon.png">
+              <h2 class="text-headline-md font-bold text-on-background dark:text-inverse-on-surface">Selamat Datang
+                Kembali</h2>
               <p class="text-body-sm text-on-surface-variant mt-xs">Silakan masuk untuk mengelola uang Anda</p>
             </div>
-            
+
             <form onsubmit="handleLogin(event)" class="space-y-lg">
               <!-- Email Input -->
               <div class="space-y-xs">
-                <label class="text-label-sm font-semibold text-on-surface-variant block" for="login-email">Email Terdaftar / Kolaborator</label>
+                <label class="text-label-sm font-semibold text-on-surface-variant block" for="login-email">Email
+                  Terdaftar / Kolaborator</label>
                 <div class="relative group">
-                  <span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px] transition-colors group-focus-within:text-primary">person</span>
-                  <input class="w-full pl-[48px] pr-md py-md bg-surface-container-low dark:bg-surface-container border-0 border-b-2 border-transparent focus:ring-0 focus:border-primary rounded transition-all text-body-md text-on-surface placeholder:text-outline-variant/60" id="login-email" name="email" placeholder="panji.newbie@gmail.com" required type="email" value="panji.newbie@gmail.com">
+                  <span
+                    class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px] transition-colors group-focus-within:text-primary">person</span>
+                  <input
+                    class="w-full pl-[48px] pr-md py-md bg-surface-container-low dark:bg-surface-container border-0 border-b-2 border-transparent focus:ring-0 focus:border-primary rounded transition-all text-body-md text-on-surface placeholder:text-outline-variant/60"
+                    id="login-email" name="email" placeholder="panji.newbie@gmail.com" required type="email"
+                    value="panji.newbie@gmail.com">
                 </div>
               </div>
 
               <!-- Password / PIN Input -->
               <div class="space-y-xs">
-                <label class="text-label-sm font-semibold text-on-surface-variant block" for="login-pin">Kata Sandi Akun</label>
+                <label class="text-label-sm font-semibold text-on-surface-variant block" for="login-pin">Kata Sandi
+                  Akun</label>
                 <div class="relative group">
-                  <span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px] transition-colors group-focus-within:text-primary">lock</span>
-                  <input class="w-full pl-[48px] pr-md py-md bg-surface-container-low dark:bg-surface-container border-0 border-b-2 border-transparent focus:ring-0 focus:border-primary rounded transition-all text-body-md text-on-surface placeholder:text-outline-variant/60" id="login-pin" name="pin" placeholder="••••••••" required type="password">
-                  <button type="button" onclick="togglePinVisibility()" class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface">visibility</button>
+                  <span
+                    class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px] transition-colors group-focus-within:text-primary">lock</span>
+                  <input
+                    class="w-full pl-[48px] pr-md py-md bg-surface-container-low dark:bg-surface-container border-0 border-b-2 border-transparent focus:ring-0 focus:border-primary rounded transition-all text-body-md text-on-surface placeholder:text-outline-variant/60"
+                    id="login-pin" name="pin" placeholder="••••••••" required type="password">
+                  <button type="button" onclick="togglePinVisibility()"
+                    class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface">visibility</button>
                 </div>
                 <p id="login-error" class="text-error text-label-sm hidden font-medium mt-1"></p>
               </div>
-              
+
               <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                  <input class="w-4 h-4 text-primary border-outline-variant rounded focus:ring-primary" id="remember" name="remember" type="checkbox" checked>
+                  <input class="w-4 h-4 text-primary border-outline-variant rounded focus:ring-primary" id="remember"
+                    name="remember" type="checkbox" checked>
                   <label class="ml-sm text-body-sm text-on-surface-variant" for="remember">Ingat Saya</label>
                 </div>
-                <span class="text-label-sm text-on-surface-variant">Utama: <strong class="text-primary">panji.newbie@gmail.com</strong></span>
+                <span class="text-label-sm text-on-surface-variant">Utama: <strong
+                    class="text-primary">panji.newbie@gmail.com</strong></span>
               </div>
 
-              <button class="w-full bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container py-md rounded-lg font-bold hover:opacity-90 transition-all shadow-sm flex justify-center items-center gap-sm active:scale-95 duration-150" type="submit">
+              <button
+                class="w-full bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container py-md rounded-lg font-bold hover:opacity-90 transition-all shadow-sm flex justify-center items-center gap-sm active:scale-95 duration-150"
+                type="submit">
                 Masuk Ke Aplikasi
                 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
               </button>
@@ -268,7 +316,8 @@
         </section>
       </div>
     </main>
-    <footer class="w-full py-md px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-sm border-t border-outline-variant/30 bg-surface-container-lowest dark:bg-inverse-surface/30">
+    <footer
+      class="w-full py-md px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-sm border-t border-outline-variant/30 bg-surface-container-lowest dark:bg-inverse-surface/30">
       <div class="flex items-center gap-xs">
         <span class="text-label-md font-bold text-primary dark:text-on-primary-container">Atur Uang</span>
         <span class="text-label-sm text-on-surface-variant">© 2026 Atur Uang. Financial Clarity for Everyone.</span>
@@ -282,7 +331,8 @@
   <!-- ==================== MAIN APPLICATION LAYOUT ==================== -->
   <div id="app-shell" class="hidden">
     <!-- Responsive Header Mobile -->
-    <header class="w-full top-0 sticky bg-surface dark:bg-inverse-surface border-b border-outline-variant/30 z-40 md:hidden">
+    <header
+      class="w-full top-0 sticky bg-surface dark:bg-inverse-surface border-b border-outline-variant/30 z-40 md:hidden">
       <div class="flex justify-between items-center w-full px-margin-mobile py-md">
         <div class="flex items-center gap-sm">
           <img src="favicon.png" alt="Logo" class="h-8 w-auto rounded">
@@ -290,17 +340,23 @@
         </div>
         <div class="flex gap-sm items-center">
           <!-- Connection Status Icon -->
-          <div id="connection-status-mobile" class="w-3 h-3 rounded-full bg-green-500 cursor-pointer" onclick="navigate('settings')" title="Status Koneksi: Lokal"></div>
-          <button onclick="toggleDarkMode()" class="material-symbols-outlined text-secondary cursor-pointer p-1">dark_mode</button>
+          <div id="connection-status-mobile" class="w-3 h-3 rounded-full bg-green-500 cursor-pointer"
+            onclick="navigate('settings')" title="Status Koneksi: Lokal"></div>
+          <button onclick="toggleDarkMode()"
+            class="material-symbols-outlined text-secondary cursor-pointer p-1">dark_mode</button>
           <button onclick="logout()" class="material-symbols-outlined text-error cursor-pointer p-1">logout</button>
         </div>
       </div>
     </header>
 
     <!-- SideNavBar (Desktop Only) -->
-    <aside class="hidden md:flex h-screen w-64 fixed left-0 top-0 bg-surface-container-lowest dark:bg-inverse-surface border-r border-outline-variant/30 flex-col p-md space-y-sm z-50 sidebar-transition" id="sidebar">
+    <aside
+      class="hidden md:flex h-screen w-64 fixed left-0 top-0 bg-surface-container-lowest dark:bg-inverse-surface border-r border-outline-variant/30 flex-col p-md space-y-sm z-50 sidebar-transition"
+      id="sidebar">
       <!-- Toggle Expand Button -->
-      <button class="absolute -right-3 top-20 bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/40 rounded-full p-1 shadow-sm hover:bg-surface-container-high dark:hover:bg-surface-container transition-colors z-[60]" onclick="toggleSidebar()">
+      <button
+        class="absolute -right-3 top-20 bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/40 rounded-full p-1 shadow-sm hover:bg-surface-container-high dark:hover:bg-surface-container transition-colors z-[60]"
+        onclick="toggleSidebar()">
         <span class="material-symbols-outlined text-secondary text-sm" id="toggle-icon">chevron_left</span>
       </button>
 
@@ -308,38 +364,51 @@
       <div class="mb-xl px-xs sidebar-header flex items-center gap-sm">
         <img src="favicon.png" alt="Logo" class="h-10 w-auto rounded shadow-sm border border-outline-variant/10">
         <div class="sidebar-header-text">
-          <h1 class="text-headline-sm font-bold text-primary dark:text-on-primary-container whitespace-nowrap">Atur Uang</h1>
+          <h1 class="text-headline-sm font-bold text-primary dark:text-on-primary-container whitespace-nowrap">Atur Uang
+          </h1>
           <p class="text-[10px] text-on-surface-variant sidebar-header-desc">Kelola finansialmu</p>
         </div>
       </div>
 
       <!-- Sync Status Card -->
-      <div id="sync-status-card" class="sidebar-text p-sm bg-surface-container-low dark:bg-surface rounded-xl border border-outline-variant/30 text-xs flex flex-col gap-1">
+      <div id="sync-status-card"
+        class="sidebar-text p-sm bg-surface-container-low dark:bg-surface rounded-xl border border-outline-variant/30 text-xs flex flex-col gap-1">
         <div class="flex items-center justify-between">
           <span class="font-bold text-on-surface">Database:</span>
-          <span id="db-type-badge" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-secondary-container text-on-secondary-container">Lokal</span>
+          <span id="db-type-badge"
+            class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-secondary-container text-on-secondary-container">Lokal</span>
         </div>
         <p id="db-sync-time" class="text-[10px] text-on-surface-variant">Update: Offline Mode</p>
-        <button id="sync-now-btn" class="mt-1 py-1 w-full bg-primary/10 text-primary dark:text-on-primary-container hover:bg-primary/20 rounded font-bold transition-all flex items-center justify-center gap-1" onclick="triggerManualSync()" disabled>
+        <button id="sync-now-btn"
+          class="mt-1 py-1 w-full bg-primary/10 text-primary dark:text-on-primary-container hover:bg-primary/20 rounded font-bold transition-all flex items-center justify-center gap-1"
+          onclick="triggerManualSync()" disabled>
           <span class="material-symbols-outlined text-xs">sync</span> Sinkronkan
         </button>
       </div>
 
       <!-- Navigation Menu -->
       <nav class="flex-grow space-y-xs">
-        <a id="nav-dashboard" class="sidebar-nav-item flex items-center gap-md px-md py-sm rounded-full transition-all scale-95 active:scale-100" href="javascript:navigate('dashboard')">
+        <a id="nav-dashboard"
+          class="sidebar-nav-item flex items-center gap-md px-md py-sm rounded-full transition-all scale-95 active:scale-100"
+          href="javascript:navigate('dashboard')">
           <span class="material-symbols-outlined">dashboard</span>
           <span class="font-bold text-label-md sidebar-text">Beranda</span>
         </a>
-        <a id="nav-transactions" class="sidebar-nav-item flex items-center gap-md px-md py-sm rounded-full transition-all scale-95 active:scale-100" href="javascript:navigate('transactions')">
+        <a id="nav-transactions"
+          class="sidebar-nav-item flex items-center gap-md px-md py-sm rounded-full transition-all scale-95 active:scale-100"
+          href="javascript:navigate('transactions')">
           <span class="material-symbols-outlined">receipt_long</span>
           <span class="font-bold text-label-md sidebar-text">Transaksi</span>
         </a>
-        <a id="nav-budgets" class="sidebar-nav-item flex items-center gap-md px-md py-sm rounded-full transition-all scale-95 active:scale-100" href="javascript:navigate('budgets')">
+        <a id="nav-budgets"
+          class="sidebar-nav-item flex items-center gap-md px-md py-sm rounded-full transition-all scale-95 active:scale-100"
+          href="javascript:navigate('budgets')">
           <span class="material-symbols-outlined">account_balance_wallet</span>
           <span class="font-bold text-label-md sidebar-text">Anggaran</span>
         </a>
-        <a id="nav-reports" class="sidebar-nav-item flex items-center gap-md px-md py-sm rounded-full transition-all scale-95 active:scale-100" href="javascript:navigate('reports')">
+        <a id="nav-reports"
+          class="sidebar-nav-item flex items-center gap-md px-md py-sm rounded-full transition-all scale-95 active:scale-100"
+          href="javascript:navigate('reports')">
           <span class="material-symbols-outlined">query_stats</span>
           <span class="font-bold text-label-md sidebar-text">Laporan</span>
         </a>
@@ -347,15 +416,19 @@
 
       <!-- Sidebar Bottom Action -->
       <div class="pt-xl border-t border-outline-variant/30 space-y-xs">
-        <button onclick="openTransactionModal()" class="add-btn w-full py-md px-md bg-primary text-on-primary rounded-xl flex items-center justify-center gap-sm transition-all hover:opacity-90 active:scale-95">
+        <button onclick="openTransactionModal()"
+          class="add-btn w-full py-md px-md bg-primary text-on-primary rounded-xl flex items-center justify-center gap-sm transition-all hover:opacity-90 active:scale-95">
           <span class="material-symbols-outlined">add</span>
           <span class="sidebar-text font-bold">Tambah Transaksi</span>
         </button>
-        <a id="nav-settings" class="sidebar-nav-item flex items-center gap-md px-md py-sm rounded-full transition-all text-on-surface-variant" href="javascript:navigate('settings')">
+        <a id="nav-settings"
+          class="sidebar-nav-item flex items-center gap-md px-md py-sm rounded-full transition-all text-on-surface-variant"
+          href="javascript:navigate('settings')">
           <span class="material-symbols-outlined">settings</span>
           <span class="font-bold text-label-md sidebar-text">Pengaturan</span>
         </a>
-        <a class="sidebar-nav-item flex items-center gap-md px-md py-sm rounded-full transition-all text-error hover:bg-error-container/30" href="javascript:logout()">
+        <a class="sidebar-nav-item flex items-center gap-md px-md py-sm rounded-full transition-all text-error hover:bg-error-container/30"
+          href="javascript:logout()">
           <span class="material-symbols-outlined">logout</span>
           <span class="font-bold text-label-md sidebar-text">Keluar</span>
         </a>
@@ -363,13 +436,15 @@
 
       <!-- Developer Info Footer -->
       <div class="pt-md pb-xs px-md mt-auto sidebar-footer">
-        <p class="text-[10px] text-on-surface-variant opacity-60 text-center leading-tight">Dibuat oleh Mas Panji Purnomo</p>
+        <p class="text-[10px] text-on-surface-variant opacity-60 text-center leading-tight">Dibuat oleh Mas Panji
+          Purnomo</p>
       </div>
     </aside>
 
     <!-- Main View Canvas -->
-    <main class="md:ml-64 p-margin-mobile md:p-margin-desktop pb-24 md:pb-margin-desktop content-transition" id="main-content">
-      
+    <main class="md:ml-64 p-margin-mobile md:p-margin-desktop pb-24 md:pb-margin-desktop content-transition"
+      id="main-content">
+
       <!-- ==================== VIEW: DASHBOARD ==================== -->
       <div id="view-dashboard" class="view-tab space-y-2xl">
         <!-- Header -->
@@ -377,10 +452,12 @@
           <div>
             <h2 class="font-bold text-headline-lg text-on-surface hidden md:block">Ringkasan Keuangan</h2>
             <h2 class="font-bold text-headline-lg-mobile text-on-surface md:hidden">Halo, Selamat Datang</h2>
-            <p class="text-body-md text-on-surface-variant">Selamat mengelola finansial secara presisi, <span id="dashboard-user-name" class="font-bold text-primary">Mas Panji Purnomo</span>.</p>
+            <p class="text-body-md text-on-surface-variant">Selamat mengelola finansial secara presisi, <span
+                id="dashboard-user-name" class="font-bold text-primary">Mas Panji Purnomo</span>.</p>
           </div>
           <div class="hidden md:flex items-center gap-md">
-            <button onclick="toggleDarkMode()" class="p-sm bg-surface-container hover:bg-surface-container-high rounded-full transition-colors flex items-center justify-center">
+            <button onclick="toggleDarkMode()"
+              class="p-sm bg-surface-container hover:bg-surface-container-high rounded-full transition-colors flex items-center justify-center">
               <span class="material-symbols-outlined text-on-surface">dark_mode</span>
             </button>
             <div class="bg-surface-container p-sm rounded-xl flex items-center gap-sm border border-outline-variant/35">
@@ -393,7 +470,8 @@
         <!-- Bento Grid for Balances -->
         <div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
           <!-- Main Net Worth Balance Card -->
-          <div class="md:col-span-6 lg:col-span-5 bg-primary text-on-primary p-xl rounded-xl relative overflow-hidden flex flex-col justify-between h-64 border border-primary/50 shadow-md">
+          <div
+            class="md:col-span-6 lg:col-span-5 bg-primary text-on-primary p-xl rounded-xl relative overflow-hidden flex flex-col justify-between h-64 border border-primary/50 shadow-md">
             <div class="z-10">
               <p class="text-label-md font-medium opacity-80 uppercase tracking-widest">Uang Bersih Saya</p>
               <h3 id="card-net-worth" class="text-display-lg font-bold mt-xs tracking-tight">Rp 0</h3>
@@ -419,17 +497,21 @@
           <!-- Stats Sub-Cards -->
           <div class="md:col-span-6 lg:col-span-4 flex flex-col gap-lg">
             <!-- Income Card -->
-            <div class="flex-grow bg-surface-container-lowest dark:bg-inverse-surface p-lg rounded-xl border border-outline-variant/30 flex items-center gap-lg hover:border-primary/50 transition-all duration-300">
-              <div class="w-12 h-12 bg-tertiary-container text-on-tertiary-container rounded-full flex items-center justify-center">
+            <div
+              class="flex-grow bg-surface-container-lowest dark:bg-inverse-surface p-lg rounded-xl border border-outline-variant/30 flex items-center gap-lg hover:border-primary/50 transition-all duration-300">
+              <div
+                class="w-12 h-12 bg-tertiary-container text-on-tertiary-container rounded-full flex items-center justify-center">
                 <span class="material-symbols-outlined fill-1">trending_up</span>
               </div>
               <div>
                 <p class="text-label-sm font-medium text-on-surface-variant">Total Pemasukan</p>
-                <p id="card-total-income" class="text-headline-sm font-bold text-primary dark:text-on-primary-container">Rp 0</p>
+                <p id="card-total-income"
+                  class="text-headline-sm font-bold text-primary dark:text-on-primary-container">Rp 0</p>
               </div>
             </div>
             <!-- Expense Card -->
-            <div class="flex-grow bg-surface-container-lowest dark:bg-inverse-surface p-lg rounded-xl border border-outline-variant/30 flex items-center gap-lg hover:border-error/50 transition-all duration-300">
+            <div
+              class="flex-grow bg-surface-container-lowest dark:bg-inverse-surface p-lg rounded-xl border border-outline-variant/30 flex items-center gap-lg hover:border-error/50 transition-all duration-300">
               <div class="w-12 h-12 bg-error-container text-error rounded-full flex items-center justify-center">
                 <span class="material-symbols-outlined fill-1">trending_down</span>
               </div>
@@ -441,15 +523,17 @@
           </div>
 
           <!-- Quick Budget Alert Progress Card -->
-          <div class="md:col-span-12 lg:col-span-3 bg-surface-container-low dark:bg-inverse-surface/30 p-lg rounded-xl border border-outline-variant/30 flex flex-col justify-between text-center gap-sm">
+          <div
+            class="md:col-span-12 lg:col-span-3 bg-surface-container-low dark:bg-inverse-surface/30 p-lg rounded-xl border border-outline-variant/30 flex flex-col justify-between text-center gap-sm">
             <div>
               <span class="material-symbols-outlined text-secondary text-[40px] mb-1">account_balance_wallet</span>
               <p class="text-body-md font-bold text-on-surface">Kesehatan Anggaran</p>
               <p class="text-label-sm text-on-surface-variant mt-xs">Total Pengeluaran / Limit Total</p>
             </div>
-            
+
             <div class="w-full bg-outline-variant/30 h-2.5 rounded-full mt-2 overflow-hidden">
-              <div id="total-budget-progress-bar" class="bg-primary h-full rounded-full transition-all duration-500" style="width: 0%;"></div>
+              <div id="total-budget-progress-bar" class="bg-primary h-full rounded-full transition-all duration-500"
+                style="width: 0%;"></div>
             </div>
             <div>
               <p id="total-budget-percentage-text" class="text-label-sm font-bold text-secondary">0% terpakai</p>
@@ -461,27 +545,34 @@
         <!-- Data Visualizations -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-lg items-start">
           <!-- Weekly Spend Chart -->
-          <div class="lg:col-span-8 bg-surface-container-lowest dark:bg-inverse-surface p-xl rounded-xl border border-outline-variant/30 shadow-sm">
+          <div
+            class="lg:col-span-8 bg-surface-container-lowest dark:bg-inverse-surface p-xl rounded-xl border border-outline-variant/30 shadow-sm">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md mb-xl">
               <h3 class="text-headline-sm font-bold text-on-surface">Pengeluaran 7 Hari Terakhir</h3>
               <div class="flex gap-sm self-stretch md:self-auto">
-                <span class="px-md py-xs bg-primary text-on-primary text-label-sm rounded-full cursor-pointer flex items-center justify-center font-bold">Mingguan</span>
-                <span class="px-md py-xs bg-surface-container dark:bg-surface text-label-sm text-on-surface-variant rounded-full cursor-pointer flex items-center justify-center" onclick="navigate('reports')">Detail Laporan</span>
+                <span
+                  class="px-md py-xs bg-primary text-on-primary text-label-sm rounded-full cursor-pointer flex items-center justify-center font-bold">Mingguan</span>
+                <span
+                  class="px-md py-xs bg-surface-container dark:bg-surface text-label-sm text-on-surface-variant rounded-full cursor-pointer flex items-center justify-center"
+                  onclick="navigate('reports')">Detail Laporan</span>
               </div>
             </div>
             <!-- Dynamic SVG Spend Trend Chart container -->
-            <div id="weekly-chart-container" class="h-64 flex items-end justify-between px-md relative pt-6 border-b border-outline-variant/20">
+            <div id="weekly-chart-container"
+              class="h-64 flex items-end justify-between px-md relative pt-6 border-b border-outline-variant/20">
               <!-- Dynamically populated bars will go here via JS -->
             </div>
           </div>
 
           <!-- Recent Transactions list -->
-          <div class="lg:col-span-4 bg-surface-container-lowest dark:bg-inverse-surface p-xl rounded-xl border border-outline-variant/30 shadow-sm flex flex-col justify-between min-h-[354px]">
+          <div
+            class="lg:col-span-4 bg-surface-container-lowest dark:bg-inverse-surface p-xl rounded-xl border border-outline-variant/30 shadow-sm flex flex-col justify-between min-h-[354px]">
             <div class="flex justify-between items-center mb-xl">
               <h3 class="text-headline-sm font-bold text-on-surface">Transaksi Terbaru</h3>
-              <a class="text-label-md text-primary font-bold hover:underline" href="javascript:navigate('transactions')">Lihat Semua</a>
+              <a class="text-label-md text-primary font-bold hover:underline"
+                href="javascript:navigate('transactions')">Lihat Semua</a>
             </div>
-            
+
             <div id="recent-transactions-list" class="space-y-lg flex-grow overflow-y-auto max-h-[250px] pr-1">
               <!-- Dynamically populated transaction list items -->
             </div>
@@ -489,10 +580,13 @@
         </div>
 
         <!-- Category Balances Chart -->
-        <div class="bg-surface-container-lowest dark:bg-inverse-surface p-xl rounded-xl border border-outline-variant/30 shadow-sm space-y-lg">
+        <div
+          class="bg-surface-container-lowest dark:bg-inverse-surface p-xl rounded-xl border border-outline-variant/30 shadow-sm space-y-lg">
           <div class="flex justify-between items-center">
             <h3 class="text-headline-sm font-bold text-on-surface">Distribusi Uang per Rekening (Kategori)</h3>
-            <span class="px-md py-xs bg-surface-container-low dark:bg-surface text-label-sm text-on-surface-variant font-bold rounded-full">Aset Aktif</span>
+            <span
+              class="px-md py-xs bg-surface-container-low dark:bg-surface text-label-sm text-on-surface-variant font-bold rounded-full">Aset
+              Aktif</span>
           </div>
           <!-- Horizontal balance bars container -->
           <div id="category-balances-chart" class="grid grid-cols-1 md:grid-cols-3 gap-lg">
@@ -509,32 +603,40 @@
             <h2 class="font-bold text-headline-lg text-on-surface">Riwayat Transaksi</h2>
             <p class="text-body-md text-on-surface-variant">Lacak semua arus kas masuk dan keluar Anda.</p>
           </div>
-          <button onclick="openTransactionModal()" class="w-full md:w-auto bg-primary text-on-primary py-md px-lg rounded-xl font-bold hover:opacity-90 shadow-sm flex items-center justify-center gap-xs">
+          <button onclick="openTransactionModal()"
+            class="w-full md:w-auto bg-primary text-on-primary py-md px-lg rounded-xl font-bold hover:opacity-90 shadow-sm flex items-center justify-center gap-xs">
             <span class="material-symbols-outlined">add</span> Tambah Transaksi
           </button>
         </header>
 
         <!-- Filters Section (Bento Grid Style) -->
         <section class="grid grid-cols-1 md:grid-cols-4 gap-md">
-          <div class="md:col-span-2 bg-white dark:bg-inverse-surface border border-outline-variant/30 p-md rounded-xl flex items-center gap-md shadow-sm">
+          <div
+            class="md:col-span-2 bg-white dark:bg-inverse-surface border border-outline-variant/30 p-md rounded-xl flex items-center gap-md shadow-sm">
             <span class="material-symbols-outlined text-outline">search</span>
-            <input id="tx-search" oninput="filterTransactions()" class="bg-transparent border-none focus:ring-0 w-full text-body-md text-on-surface placeholder:text-outline-variant/60" placeholder="Cari keterangan, jumlah atau kategori..." type="text"/>
+            <input id="tx-search" oninput="filterTransactions()"
+              class="bg-transparent border-none focus:ring-0 w-full text-body-md text-on-surface placeholder:text-outline-variant/60"
+              placeholder="Cari keterangan, jumlah atau kategori..." type="text" />
           </div>
-          <div class="bg-white dark:bg-inverse-surface border border-outline-variant/30 p-md rounded-xl flex items-center gap-md shadow-sm">
+          <div
+            class="bg-white dark:bg-inverse-surface border border-outline-variant/30 p-md rounded-xl flex items-center gap-md shadow-sm">
             <span class="material-symbols-outlined text-outline">filter_alt</span>
             <div class="flex flex-col flex-grow">
               <span class="text-label-sm font-semibold text-outline">Pemilik Dana (Tipe)</span>
-              <select id="tx-filter-type" onchange="filterTransactions()" class="bg-transparent border-none p-0 focus:ring-0 text-label-md text-on-surface cursor-pointer select-none">
+              <select id="tx-filter-type" onchange="filterTransactions()"
+                class="bg-transparent border-none p-0 focus:ring-0 text-label-md text-on-surface cursor-pointer select-none">
                 <option value="Semua">Semua Pemilik</option>
                 <!-- Dynamically populated from owners list -->
               </select>
             </div>
           </div>
-          <div class="bg-white dark:bg-inverse-surface border border-outline-variant/30 p-md rounded-xl flex items-center gap-md shadow-sm">
+          <div
+            class="bg-white dark:bg-inverse-surface border border-outline-variant/30 p-md rounded-xl flex items-center gap-md shadow-sm">
             <span class="material-symbols-outlined text-outline">category</span>
             <div class="flex flex-col flex-grow">
               <span class="text-label-sm font-semibold text-outline">Rekening (Kategori)</span>
-              <select id="tx-filter-category" onchange="filterTransactions()" class="bg-transparent border-none p-0 focus:ring-0 text-label-md text-on-surface cursor-pointer select-none">
+              <select id="tx-filter-category" onchange="filterTransactions()"
+                class="bg-transparent border-none p-0 focus:ring-0 text-label-md text-on-surface cursor-pointer select-none">
                 <option value="Semua">Semua Rekening</option>
                 <!-- Dynamically populated from banks list -->
               </select>
@@ -543,7 +645,8 @@
         </section>
 
         <!-- Table Container -->
-        <div class="bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm">
+        <div
+          class="bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm">
           <div class="overflow-x-auto">
             <table class="w-full text-left border-collapse min-w-[700px]">
               <thead class="bg-surface-container dark:bg-surface text-on-surface border-b border-outline-variant/30">
@@ -561,7 +664,7 @@
               </tbody>
             </table>
           </div>
-          
+
           <!-- Table Empty State -->
           <div id="tx-empty-state" class="hidden p-xl text-center flex flex-col items-center justify-center gap-sm">
             <span class="material-symbols-outlined text-[64px] text-outline-variant">info</span>
@@ -569,13 +672,19 @@
           </div>
 
           <!-- Pagination Footer -->
-          <div class="px-lg py-md bg-surface-container-low dark:bg-surface/30 flex justify-between items-center border-t border-outline-variant/30">
-            <span id="tx-pagination-desc" class="text-label-sm text-on-surface-variant">Menampilkan 0 dari 0 transaksi</span>
+          <div
+            class="px-lg py-md bg-surface-container-low dark:bg-surface/30 flex justify-between items-center border-t border-outline-variant/30">
+            <span id="tx-pagination-desc" class="text-label-sm text-on-surface-variant">Menampilkan 0 dari 0
+              transaksi</span>
             <div class="flex gap-sm">
-              <button id="tx-prev-page" class="p-2 rounded-full hover:bg-surface-container-high dark:hover:bg-surface text-on-surface transition-colors disabled:opacity-40" onclick="prevTxPage()">
+              <button id="tx-prev-page"
+                class="p-2 rounded-full hover:bg-surface-container-high dark:hover:bg-surface text-on-surface transition-colors disabled:opacity-40"
+                onclick="prevTxPage()">
                 <span class="material-symbols-outlined">chevron_left</span>
               </button>
-              <button id="tx-next-page" class="p-2 rounded-full hover:bg-surface-container-high dark:hover:bg-surface text-on-surface transition-colors disabled:opacity-40" onclick="nextTxPage()">
+              <button id="tx-next-page"
+                class="p-2 rounded-full hover:bg-surface-container-high dark:hover:bg-surface text-on-surface transition-colors disabled:opacity-40"
+                onclick="nextTxPage()">
                 <span class="material-symbols-outlined">chevron_right</span>
               </button>
             </div>
@@ -589,37 +698,44 @@
         <header class="flex justify-between items-end">
           <div>
             <h2 class="font-bold text-headline-lg text-on-surface mb-xs">Ringkasan Anggaran</h2>
-            <p class="text-body-md text-on-surface-variant">Pantau pengeluaran bulanan Anda agar tetap dalam jalur hemat.</p>
+            <p class="text-body-md text-on-surface-variant">Pantau pengeluaran bulanan Anda agar tetap dalam jalur
+              hemat.</p>
           </div>
         </header>
 
         <!-- Bento Grid Summaries -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
           <!-- Main Budget Card -->
-          <div class="md:col-span-2 bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl relative overflow-hidden group shadow-sm flex flex-col justify-between h-48">
+          <div
+            class="md:col-span-2 bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl relative overflow-hidden group shadow-sm flex flex-col justify-between h-48">
             <div class="absolute top-0 right-0 p-lg opacity-10 group-hover:opacity-20 transition-opacity">
               <span class="material-symbols-outlined text-[100px]">account_balance_wallet</span>
             </div>
             <div class="relative z-10 space-y-xs">
               <p class="text-label-md text-on-surface-variant font-medium">Sisa Anggaran Uang Bersih Saya (Pribadi)</p>
-              <h3 id="budget-rem-pribadi" class="text-display-lg font-bold text-primary dark:text-on-primary-container">Rp 0</h3>
+              <h3 id="budget-rem-pribadi" class="text-display-lg font-bold text-primary dark:text-on-primary-container">
+                Rp 0</h3>
             </div>
             <div class="relative z-10 flex gap-md text-label-sm text-on-surface-variant">
-              <span>Sisa Pribadi: <strong id="budget-rem-pribadi-sub" class="text-primary font-bold">Rp 0</strong></span>
+              <span>Sisa Pribadi: <strong id="budget-rem-pribadi-sub" class="text-primary font-bold">Rp
+                  0</strong></span>
               <span>•</span>
-              <span>Sisa Titipan: <strong id="budget-rem-titipan-sub" class="text-secondary font-bold">Rp 0</strong></span>
+              <span>Sisa Titipan: <strong id="budget-rem-titipan-sub" class="text-secondary font-bold">Rp
+                  0</strong></span>
             </div>
           </div>
 
           <!-- Total Limit and Spent Card -->
-          <div class="bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl flex flex-col justify-between shadow-sm h-48">
+          <div
+            class="bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl flex flex-col justify-between shadow-sm h-48">
             <div class="space-y-xs">
               <p class="text-label-md text-on-surface-variant font-medium">Total Batas Anggaran</p>
               <p id="budget-total-limit" class="text-headline-sm font-bold text-on-surface">Rp 0</p>
             </div>
             <div class="space-y-sm">
               <div class="h-2 bg-surface-container dark:bg-surface rounded-full overflow-hidden">
-                <div id="budget-ratio-bar" class="h-full bg-primary transition-all duration-500" style="width: 0%;"></div>
+                <div id="budget-ratio-bar" class="h-full bg-primary transition-all duration-500" style="width: 0%;">
+                </div>
               </div>
               <div class="flex justify-between text-label-sm text-on-surface-variant font-medium">
                 <span id="budget-ratio-text">Terpakai 0%</span>
@@ -639,13 +755,16 @@
         </div>
 
         <!-- Extra Tips banner -->
-        <div class="bg-surface-container-low dark:bg-inverse-surface/30 rounded-xl p-lg flex flex-col md:flex-row items-center gap-lg border border-outline-variant/20 shadow-sm">
-          <div class="flex-shrink-0 w-24 h-24 rounded-xl overflow-hidden bg-primary/10 flex items-center justify-center text-primary">
+        <div
+          class="bg-surface-container-low dark:bg-inverse-surface/30 rounded-xl p-lg flex flex-col md:flex-row items-center gap-lg border border-outline-variant/20 shadow-sm">
+          <div
+            class="flex-shrink-0 w-24 h-24 rounded-xl overflow-hidden bg-primary/10 flex items-center justify-center text-primary">
             <span class="material-symbols-outlined text-[48px]">lightbulb</span>
           </div>
           <div class="flex-grow">
             <h3 class="font-bold text-headline-sm text-on-surface mb-xs">Rekomendasi Pintar</h3>
-            <p id="budget-tip-desc" class="text-body-md text-on-surface-variant">Data transaksi Anda belum cukup untuk memberikan tips yang dipersonalisasi. Tambah beberapa transaksi untuk melihat analisis cerdas.</p>
+            <p id="budget-tip-desc" class="text-body-md text-on-surface-variant">Data transaksi Anda belum cukup untuk
+              memberikan tips yang dipersonalisasi. Tambah beberapa transaksi untuk melihat analisis cerdas.</p>
           </div>
         </div>
       </div>
@@ -656,9 +775,11 @@
         <header class="flex flex-col md:flex-row md:items-end justify-between gap-md">
           <div>
             <h2 class="font-bold text-headline-lg text-on-surface">Laporan Keuangan</h2>
-            <p class="text-body-md text-on-surface-variant">Analisis komprehensif performa dan kesehatan finansial Anda.</p>
+            <p class="text-body-md text-on-surface-variant">Analisis komprehensif performa dan kesehatan finansial Anda.
+            </p>
           </div>
-          <div class="flex items-center gap-sm bg-surface-container dark:bg-surface px-md py-sm rounded-full border border-outline-variant/30 select-none">
+          <div
+            class="flex items-center gap-sm bg-surface-container dark:bg-surface px-md py-sm rounded-full border border-outline-variant/30 select-none">
             <span class="material-symbols-outlined text-primary">calendar_today</span>
             <span class="text-label-md font-bold text-on-surface">Periode: Semua Data</span>
           </div>
@@ -666,27 +787,32 @@
 
         <!-- Dynamic stats grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
-          <div class="bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm flex flex-col justify-between">
+          <div
+            class="bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm flex flex-col justify-between">
             <div>
               <p class="text-label-sm font-semibold text-on-surface-variant mb-xs">Total Pemasukan</p>
-              <h3 id="report-total-income" class="text-headline-sm font-bold text-primary dark:text-on-primary-container">Rp 0</h3>
+              <h3 id="report-total-income"
+                class="text-headline-sm font-bold text-primary dark:text-on-primary-container">Rp 0</h3>
             </div>
             <p class="text-[10px] text-on-surface-variant mt-md">Jumlah seluruh dana masuk (Gaji, bunga, dll)</p>
           </div>
-          <div class="bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm flex flex-col justify-between">
+          <div
+            class="bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm flex flex-col justify-between">
             <div>
               <p class="text-label-sm font-semibold text-on-surface-variant mb-xs">Total Pengeluaran</p>
               <h3 id="report-total-expense" class="text-headline-sm font-bold text-error">Rp 0</h3>
             </div>
             <p class="text-[10px] text-on-surface-variant mt-md">Arus dana keluar (Belanja, makan, tagihan, dll)</p>
           </div>
-          <div class="bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm flex flex-col justify-between">
+          <div
+            class="bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm flex flex-col justify-between">
             <div>
               <p class="text-label-sm font-semibold text-on-surface-variant mb-xs">Rasio Uang Bersih (Saving Rate)</p>
               <h3 id="report-savings-rate" class="text-headline-sm font-bold text-on-surface">0%</h3>
             </div>
             <div class="w-full bg-surface-variant dark:bg-surface h-2 rounded-full mt-sm overflow-hidden">
-              <div id="report-savings-rate-bar" class="bg-primary h-full transition-all duration-500" style="width: 0%;"></div>
+              <div id="report-savings-rate-bar" class="bg-primary h-full transition-all duration-500"
+                style="width: 0%;"></div>
             </div>
           </div>
         </div>
@@ -694,10 +820,12 @@
         <!-- Interactive SVGs & Visualizations -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
           <!-- Multi-month Income vs Expense Chart -->
-          <div class="lg:col-span-7 bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm">
+          <div
+            class="lg:col-span-7 bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm">
             <h4 class="font-bold text-headline-sm text-on-surface mb-xl">Pemasukan vs Pengeluaran Bulanan</h4>
             <!-- Simulated dynamic SVG Bar Chart -->
-            <div id="multi-month-chart" class="h-64 flex items-end justify-between px-md gap-gutter relative pt-6 border-b border-outline-variant/20">
+            <div id="multi-month-chart"
+              class="h-64 flex items-end justify-between px-md gap-gutter relative pt-6 border-b border-outline-variant/20">
               <!-- Loaded dynamically by JS -->
             </div>
             <div class="mt-lg flex justify-center gap-lg text-label-sm">
@@ -713,24 +841,30 @@
           </div>
 
           <!-- Category Composition Circle Donut Chart -->
-          <div class="lg:col-span-5 bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm flex flex-col">
+          <div
+            class="lg:col-span-5 bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm flex flex-col">
             <h4 class="font-bold text-headline-sm text-on-surface mb-lg">Komposisi Tipe Arus Kas</h4>
             <div class="flex flex-col md:flex-row items-center justify-between gap-xl flex-1">
               <div class="relative w-44 h-44 flex-shrink-0">
                 <!-- SVG Circle Donut Chart -->
                 <svg class="w-full h-full -rotate-90" viewBox="0 0 36 36">
                   <circle cx="18" cy="18" r="15.915" fill="transparent" stroke="#eff4ff" stroke-width="4"></circle>
-                  <circle id="donut-pribadi" cx="18" cy="18" r="15.915" fill="transparent" stroke="#004532" stroke-width="4" stroke-dasharray="0 100" stroke-dashoffset="0" class="transition-all duration-700"></circle>
-                  <circle id="donut-titipan" cx="18" cy="18" r="15.915" fill="transparent" stroke="#ba1a1a" stroke-width="4" stroke-dasharray="0 100" stroke-dashoffset="0" class="transition-all duration-700"></circle>
+                  <circle id="donut-pribadi" cx="18" cy="18" r="15.915" fill="transparent" stroke="#004532"
+                    stroke-width="4" stroke-dasharray="0 100" stroke-dashoffset="0" class="transition-all duration-700">
+                  </circle>
+                  <circle id="donut-titipan" cx="18" cy="18" r="15.915" fill="transparent" stroke="#ba1a1a"
+                    stroke-width="4" stroke-dasharray="0 100" stroke-dashoffset="0" class="transition-all duration-700">
+                  </circle>
                 </svg>
                 <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none text-center">
                   <span class="text-[10px] text-on-surface-variant font-semibold">Total Beban</span>
                   <span id="donut-total-val" class="font-bold text-sm text-on-surface">Rp 0</span>
                 </div>
               </div>
-              
+
               <div class="flex-grow w-full space-y-md">
-                <div class="flex justify-between items-center group cursor-pointer border-b border-outline-variant/20 pb-xs">
+                <div
+                  class="flex justify-between items-center group cursor-pointer border-b border-outline-variant/20 pb-xs">
                   <div class="flex items-center gap-sm">
                     <span class="w-3.5 h-3.5 bg-primary rounded-full"></span>
                     <span class="font-medium text-body-sm text-on-surface">Pengeluaran Pribadi</span>
@@ -740,7 +874,8 @@
                     <p id="label-ratio-pribadi-val" class="text-[10px] text-on-surface-variant">Rp 0</p>
                   </div>
                 </div>
-                <div class="flex justify-between items-center group cursor-pointer border-b border-outline-variant/20 pb-xs">
+                <div
+                  class="flex justify-between items-center group cursor-pointer border-b border-outline-variant/20 pb-xs">
                   <div class="flex items-center gap-sm">
                     <span class="w-3.5 h-3.5 bg-error rounded-full"></span>
                     <span class="font-medium text-body-sm text-on-surface">Pengeluaran Titipan</span>
@@ -756,7 +891,8 @@
         </div>
 
         <!-- Top Allocations Breakdown -->
-        <div class="bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm">
+        <div
+          class="bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm">
           <div class="p-lg border-b border-outline-variant/30 flex justify-between items-center">
             <h4 class="font-bold text-headline-sm text-on-surface">Alokasi Beban per Kategori Terbesar</h4>
           </div>
@@ -788,14 +924,16 @@
         </header>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-lg items-start">
-          
+
           <!-- LEFT COLUMN (2 SPANS) - MAIN APPLICATION SETTINGS -->
           <div class="lg:col-span-2 space-y-lg">
-            
+
             <!-- 1. Mode Tampilan -->
-            <div class="bg-white dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+            <div
+              class="bg-white dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
               <div class="flex items-center gap-md">
-                <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary dark:text-on-primary-container">
+                <div
+                  class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary dark:text-on-primary-container">
                   <span class="material-symbols-outlined text-[28px]">palette</span>
                 </div>
                 <div>
@@ -803,17 +941,22 @@
                   <p class="text-body-sm text-on-surface-variant">Atur tema aplikasi sesuai kenyamanan mata</p>
                 </div>
               </div>
-              <div class="flex bg-surface-container-low dark:bg-surface rounded-full p-1 border border-outline-variant/20 self-stretch md:self-auto justify-center select-none">
-                <button onclick="setThemeMode('light')" id="theme-light-btn" class="px-xl py-sm rounded-full font-bold text-label-md transition-all active:scale-95 duration-100">Terang</button>
-                <button onclick="setThemeMode('dark')" id="theme-dark-btn" class="px-xl py-sm rounded-full font-bold text-label-md transition-all active:scale-95 duration-100">Gelap</button>
+              <div
+                class="flex bg-surface-container-low dark:bg-surface rounded-full p-1 border border-outline-variant/20 self-stretch md:self-auto justify-center select-none">
+                <button onclick="setThemeMode('light')" id="theme-light-btn"
+                  class="px-xl py-sm rounded-full font-bold text-label-md transition-all active:scale-95 duration-100">Terang</button>
+                <button onclick="setThemeMode('dark')" id="theme-dark-btn"
+                  class="px-xl py-sm rounded-full font-bold text-label-md transition-all active:scale-95 duration-100">Gelap</button>
               </div>
             </div>
 
             <!-- 2. Manajemen Pemilik Dana -->
-            <div class="bg-white dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm space-y-lg">
+            <div
+              class="bg-white dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm space-y-lg">
               <div class="flex justify-between items-center border-b border-outline-variant/20 pb-md">
                 <div class="flex items-center gap-md">
-                  <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary dark:text-on-primary-container">
+                  <div
+                    class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary dark:text-on-primary-container">
                     <span class="material-symbols-outlined text-[28px]">group</span>
                   </div>
                   <div>
@@ -821,11 +964,12 @@
                     <p class="text-body-sm text-on-surface-variant">Kelola nama-nama pemilik dana titipan</p>
                   </div>
                 </div>
-                <button onclick="openOwnerModal()" class="bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container py-sm px-md rounded-lg font-bold text-label-sm hover:opacity-90 shadow-sm flex items-center gap-xs">
+                <button onclick="openOwnerModal()"
+                  class="bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container py-sm px-md rounded-lg font-bold text-label-sm hover:opacity-90 shadow-sm flex items-center gap-xs">
                   <span class="material-symbols-outlined text-sm">add</span> Tambah Pemilik
                 </button>
               </div>
-              
+
               <!-- Owners List Container -->
               <div id="settings-owners-list" class="grid grid-cols-1 md:grid-cols-2 gap-md">
                 <!-- Populated dynamically -->
@@ -833,22 +977,26 @@
             </div>
 
             <!-- 3. Daftar Bank/E-Wallet -->
-            <div class="bg-white dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm space-y-lg">
+            <div
+              class="bg-white dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm space-y-lg">
               <div class="flex justify-between items-center border-b border-outline-variant/20 pb-md">
                 <div class="flex items-center gap-md">
-                  <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary dark:text-on-primary-container">
+                  <div
+                    class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary dark:text-on-primary-container">
                     <span class="material-symbols-outlined text-[28px]">account_balance</span>
                   </div>
                   <div>
                     <h3 class="font-bold text-headline-sm text-on-surface">Daftar Bank/E-Wallet</h3>
-                    <p class="text-body-sm text-on-surface-variant">Kelola akun bank dan dompet digital yang digunakan</p>
+                    <p class="text-body-sm text-on-surface-variant">Kelola akun bank dan dompet digital yang digunakan
+                    </p>
                   </div>
                 </div>
-                <button onclick="openBankModal()" class="bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container py-sm px-md rounded-lg font-bold text-label-sm hover:opacity-90 shadow-sm flex items-center gap-xs">
+                <button onclick="openBankModal()"
+                  class="bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container py-sm px-md rounded-lg font-bold text-label-sm hover:opacity-90 shadow-sm flex items-center gap-xs">
                   <span class="material-symbols-outlined text-sm">add</span> Tambah Akun
                 </button>
               </div>
-              
+
               <!-- Banks List Container -->
               <div id="settings-banks-list" class="grid grid-cols-1 md:grid-cols-2 gap-md">
                 <!-- Populated dynamically -->
@@ -856,28 +1004,38 @@
             </div>
 
             <!-- 4. Integrasi API Analisa -->
-            <div class="bg-white dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm space-y-lg">
+            <div
+              class="bg-white dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm space-y-lg">
               <div class="flex items-center gap-md border-b border-outline-variant/20 pb-md">
-                <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary dark:text-on-primary-container">
+                <div
+                  class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary dark:text-on-primary-container">
                   <span class="material-symbols-outlined text-[28px]">insights</span>
                 </div>
                 <div>
                   <h3 class="font-bold text-headline-sm text-on-surface">Integrasi API Analisa</h3>
-                  <p class="text-body-sm text-on-surface-variant">Hubungkan dengan mesin AI untuk analisa keuangan mendalam</p>
+                  <p class="text-body-sm text-on-surface-variant">Hubungkan dengan mesin AI untuk analisa keuangan
+                    mendalam</p>
                 </div>
               </div>
-              
+
               <div class="space-y-sm">
-                <label class="text-label-sm font-semibold text-on-surface-variant block" for="ai-api-key">API Key Financial Insight</label>
+                <label class="text-label-sm font-semibold text-on-surface-variant block" for="ai-api-key">API Key
+                  Financial Insight</label>
                 <div class="flex gap-md">
-                  <input id="ai-api-key" class="flex-grow border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface font-mono" type="password" placeholder="fai_live_xxxxxxxxxxxxxxxxxxxx" value="fai_live_92a83bd782cd01ba2d39ef44">
-                  <button onclick="saveAIKey()" class="py-md px-lg bg-secondary text-on-secondary rounded-lg font-bold hover:opacity-90 transition-all text-label-md shadow-sm">Simpan</button>
+                  <input id="ai-api-key"
+                    class="flex-grow border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface font-mono"
+                    type="password" placeholder="fai_live_xxxxxxxxxxxxxxxxxxxx"
+                    value="fai_live_92a83bd782cd01ba2d39ef44">
+                  <button onclick="saveAIKey()"
+                    class="py-md px-lg bg-secondary text-on-secondary rounded-lg font-bold hover:opacity-90 transition-all text-label-md shadow-sm">Simpan</button>
                 </div>
                 <!-- Alert box exactly like screenshot -->
-                <div class="p-md rounded-lg border border-primary/20 bg-primary/5 dark:bg-primary-container/10 flex items-center gap-md">
+                <div
+                  class="p-md rounded-lg border border-primary/20 bg-primary/5 dark:bg-primary-container/10 flex items-center gap-md">
                   <span class="material-symbols-outlined text-primary">info</span>
                   <p class="text-body-sm text-on-surface">
-                    <span class="font-semibold text-primary">Status: Terhubung.</span> Analisis AI cerdas aktif pada menu rekomendasi anggaran.
+                    <span class="font-semibold text-primary">Status: Terhubung.</span> Analisis AI cerdas aktif pada
+                    menu rekomendasi anggaran.
                   </p>
                 </div>
               </div>
@@ -887,70 +1045,96 @@
 
           <!-- RIGHT COLUMN (1 SPAN) - SYSTEM & SECURITY CONTROLS -->
           <div class="lg:col-span-1 space-y-lg">
-            
+
             <!-- Profil Pengguna -->
-            <div class="bg-white dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm space-y-md">
+            <div
+              class="bg-white dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm space-y-md">
               <h3 class="text-headline-sm font-bold text-on-surface flex items-center gap-xs">
                 <span class="material-symbols-outlined text-primary">person</span> Profil Pengguna
               </h3>
               <div class="space-y-sm">
                 <div class="space-y-xs">
-                  <label class="text-label-sm font-semibold text-on-surface-variant" for="settings-name">Nama Profil</label>
-                  <input id="settings-name" class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface" type="text" placeholder="Masukkan nama..." value="Mas Panji Purnomo">
+                  <label class="text-label-sm font-semibold text-on-surface-variant" for="settings-name">Nama
+                    Profil</label>
+                  <input id="settings-name"
+                    class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface"
+                    type="text" placeholder="Masukkan nama..." value="Mas Panji Purnomo">
                 </div>
-                <button onclick="saveProfile()" class="w-full py-md bg-primary text-on-primary rounded font-bold hover:opacity-90 transition-all text-label-md shadow-sm">Simpan Profil</button>
+                <button onclick="saveProfile()"
+                  class="w-full py-md bg-primary text-on-primary rounded font-bold hover:opacity-90 transition-all text-label-md shadow-sm">Simpan
+                  Profil</button>
               </div>
             </div>
 
             <!-- Google Sheets Sync Configuration -->
-            <div class="bg-white dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm space-y-lg">
+            <div
+              class="bg-white dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm space-y-lg">
               <h3 class="text-headline-sm font-bold text-on-surface flex items-center gap-sm">
                 <span class="material-symbols-outlined text-primary">sync_alt</span> Database Google Sheets
               </h3>
-              
+
               <div class="space-y-md">
                 <div class="space-y-xs">
-                  <label class="text-label-sm font-semibold text-on-surface-variant" for="sync-sheets-url">Google Apps Script URL</label>
-                  <input id="sync-sheets-url" class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface text-xs" type="text" placeholder="https://script.google.com/macros/s/.../exec">
+                  <label class="text-label-sm font-semibold text-on-surface-variant" for="sync-sheets-url">Google Apps
+                    Script URL</label>
+                  <input id="sync-sheets-url"
+                    class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface text-xs"
+                    type="text" placeholder="https://script.google.com/macros/s/.../exec">
                 </div>
                 <div class="space-y-xs">
-                  <label class="text-label-sm font-semibold text-on-surface-variant" for="sync-sheets-token">Token Pengaman (Opsional)</label>
-                  <input id="sync-sheets-token" class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface text-xs" type="password" placeholder="Masukkan kata sandi...">
+                  <label class="text-label-sm font-semibold text-on-surface-variant" for="sync-sheets-token">Token
+                    Pengaman (Opsional)</label>
+                  <input id="sync-sheets-token"
+                    class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface text-xs"
+                    type="password" placeholder="Masukkan kata sandi...">
                 </div>
-                <button onclick="saveSyncSettings()" class="w-full py-md bg-primary text-on-primary rounded font-bold hover:opacity-90 transition-all text-label-md shadow-sm flex justify-center items-center gap-xs">
+                <button onclick="saveSyncSettings()"
+                  class="w-full py-md bg-primary text-on-primary rounded font-bold hover:opacity-90 transition-all text-label-md shadow-sm flex justify-center items-center gap-xs">
                   <span class="material-symbols-outlined">save</span> Simpan & Koneksikan
                 </button>
-                <button onclick="disconnectSheets()" id="disconnect-btn" class="w-full py-md bg-error-container text-error rounded font-bold hover:opacity-90 transition-all text-label-md shadow-sm flex items-center justify-center gap-xs" disabled>
+                <button onclick="disconnectSheets()" id="disconnect-btn"
+                  class="w-full py-md bg-error-container text-error rounded font-bold hover:opacity-90 transition-all text-label-md shadow-sm flex items-center justify-center gap-xs"
+                  disabled>
                   <span class="material-symbols-outlined">sync_disabled</span> Putus Hubungan
                 </button>
               </div>
             </div>
 
             <!-- PIN Lock Screen Settings Card -->
-            <div class="bg-white dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm space-y-md">
+            <div
+              class="bg-white dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm space-y-md">
               <h3 class="text-headline-sm font-bold text-on-surface flex items-center gap-xs">
                 <span class="material-symbols-outlined text-primary">security</span> Keamanan Layar Kunci
               </h3>
               <div class="space-y-sm">
                 <div class="flex items-center justify-between">
                   <span class="text-body-md font-medium text-on-surface">Aktifkan Layar Kunci</span>
-                  <input id="settings-lock-toggle" onchange="toggleLockFeature()" class="w-10 h-5 text-primary border-outline-variant rounded-full focus:ring-primary focus:ring-offset-0 cursor-pointer" type="checkbox">
+                  <input id="settings-lock-toggle" onchange="toggleLockFeature()"
+                    class="w-10 h-5 text-primary border-outline-variant rounded-full focus:ring-primary focus:ring-offset-0 cursor-pointer"
+                    type="checkbox">
                 </div>
                 <div id="settings-pin-section" class="space-y-xs">
-                  <label class="text-label-sm font-semibold text-on-surface-variant" for="settings-pin">Ganti PIN Baru (4-6 angka)</label>
-                  <input id="settings-pin" class="w-full text-center tracking-[1.5em] border-outline-variant rounded focus:border-primary focus:ring-primary font-bold text-headline-sm bg-surface-container-low dark:bg-surface" type="password" maxlength="6" value="1234">
-                  <button onclick="savePIN()" class="mt-2 w-full py-md bg-secondary text-on-secondary rounded font-bold hover:opacity-90 transition-all text-label-md shadow-sm">Ganti PIN Keamanan</button>
+                  <label class="text-label-sm font-semibold text-on-surface-variant" for="settings-pin">Ganti PIN Baru
+                    (4-6 angka)</label>
+                  <input id="settings-pin"
+                    class="w-full text-center tracking-[1.5em] border-outline-variant rounded focus:border-primary focus:ring-primary font-bold text-headline-sm bg-surface-container-low dark:bg-surface"
+                    type="password" maxlength="6" value="1234">
+                  <button onclick="savePIN()"
+                    class="mt-2 w-full py-md bg-secondary text-on-secondary rounded font-bold hover:opacity-90 transition-all text-label-md shadow-sm">Ganti
+                    PIN Keamanan</button>
                 </div>
               </div>
             </div>
 
             <!-- Dangerous Area Reset Card -->
-            <div class="bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900 p-lg rounded-xl shadow-sm space-y-md">
+            <div
+              class="bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900 p-lg rounded-xl shadow-sm space-y-md">
               <h3 class="text-headline-sm font-bold text-error flex items-center gap-xs">
                 <span class="material-symbols-outlined">danger</span> Zona Bahaya
               </h3>
               <p class="text-body-sm text-on-surface-variant">Menghapus seluruh transaksi dan anggaran lokal.</p>
-              <button onclick="confirmResetData()" class="w-full py-md bg-error text-on-error rounded font-bold hover:opacity-90 transition-all text-label-md shadow-sm flex items-center justify-center gap-xs">
+              <button onclick="confirmResetData()"
+                class="w-full py-md bg-error text-on-error rounded font-bold hover:opacity-90 transition-all text-label-md shadow-sm flex items-center justify-center gap-xs">
                 <span class="material-symbols-outlined">delete_forever</span> Reset Data Lokal
               </button>
             </div>
@@ -962,23 +1146,29 @@
     </main>
 
     <!-- Bottom Navigation Bar Mobile -->
-    <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin-mobile py-sm bg-surface dark:bg-inverse-surface border-t border-outline-variant/30 shadow-lg">
-      <a id="mobile-nav-dashboard" class="flex flex-col items-center justify-center text-on-surface-variant p-1 w-14" href="javascript:navigate('dashboard')">
+    <nav
+      class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin-mobile py-sm bg-surface dark:bg-inverse-surface border-t border-outline-variant/30 shadow-lg">
+      <a id="mobile-nav-dashboard" class="flex flex-col items-center justify-center text-on-surface-variant p-1 w-14"
+        href="javascript:navigate('dashboard')">
         <span class="material-symbols-outlined">dashboard</span>
         <span class="text-[10px] font-bold">Beranda</span>
       </a>
-      <a id="mobile-nav-transactions" class="flex flex-col items-center justify-center text-on-surface-variant p-1 w-14" href="javascript:navigate('transactions')">
+      <a id="mobile-nav-transactions" class="flex flex-col items-center justify-center text-on-surface-variant p-1 w-14"
+        href="javascript:navigate('transactions')">
         <span class="material-symbols-outlined">receipt_long</span>
         <span class="text-[10px] font-bold">Transaksi</span>
       </a>
-      <button onclick="openTransactionModal()" class="w-12 h-12 bg-primary text-on-primary rounded-full shadow-md flex items-center justify-center -mt-6 transition-transform active:scale-90">
+      <button onclick="openTransactionModal()"
+        class="w-12 h-12 bg-primary text-on-primary rounded-full shadow-md flex items-center justify-center -mt-6 transition-transform active:scale-90">
         <span class="material-symbols-outlined text-[28px]">add</span>
       </button>
-      <a id="mobile-nav-budgets" class="flex flex-col items-center justify-center text-on-surface-variant p-1 w-14" href="javascript:navigate('budgets')">
+      <a id="mobile-nav-budgets" class="flex flex-col items-center justify-center text-on-surface-variant p-1 w-14"
+        href="javascript:navigate('budgets')">
         <span class="material-symbols-outlined">account_balance_wallet</span>
         <span class="text-[10px] font-bold">Anggaran</span>
       </a>
-      <a id="mobile-nav-reports" class="flex flex-col items-center justify-center text-on-surface-variant p-1 w-14" href="javascript:navigate('reports')">
+      <a id="mobile-nav-reports" class="flex flex-col items-center justify-center text-on-surface-variant p-1 w-14"
+        href="javascript:navigate('reports')">
         <span class="material-symbols-outlined">query_stats</span>
         <span class="text-[10px] font-bold">Laporan</span>
       </a>
@@ -987,29 +1177,37 @@
 
 
   <!-- ==================== DIALOG MODAL: TRANSACTION FORM ==================== -->
-  <div id="tx-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-md transition-opacity duration-300">
-    <div class="bg-white dark:bg-inverse-surface border border-outline-variant/40 rounded-xl max-w-lg w-full p-xl shadow-2xl flex flex-col gap-lg scale-95 transition-transform duration-300">
-      
+  <div id="tx-modal"
+    class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-md transition-opacity duration-300">
+    <div
+      class="bg-white dark:bg-inverse-surface border border-outline-variant/40 rounded-xl max-w-lg w-full p-xl shadow-2xl flex flex-col gap-lg scale-95 transition-transform duration-300">
+
       <!-- Modal Header -->
       <div class="flex justify-between items-center border-b border-outline-variant/20 pb-sm">
         <h3 id="tx-modal-title" class="text-headline-sm font-bold text-on-surface">Tambah Transaksi Baru</h3>
-        <button onclick="closeTransactionModal()" class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high rounded-full p-1">close</button>
+        <button onclick="closeTransactionModal()"
+          class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high rounded-full p-1">close</button>
       </div>
 
       <!-- Modal Form Body -->
       <form onsubmit="handleTransactionSubmit(event)" class="space-y-md">
         <input type="hidden" id="tx-form-id">
-        
+
         <div class="grid grid-cols-2 gap-md">
           <div class="space-y-xs">
             <label class="text-label-sm font-semibold text-on-surface-variant" for="tx-form-date">Tanggal</label>
-            <input id="tx-form-date" required class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface" type="date">
+            <input id="tx-form-date" required
+              class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface"
+              type="date">
           </div>
           <div class="space-y-xs">
             <label class="text-label-sm font-semibold text-on-surface-variant">Arus Dana</label>
-            <div class="flex rounded-md shadow-sm border border-outline-variant/30 overflow-hidden select-none bg-surface-container-low dark:bg-surface h-[42px]">
-              <button type="button" id="tx-arus-pengeluaran" onclick="setTxArus('Pengeluaran')" class="flex-1 font-bold text-xs flex items-center justify-center text-error bg-error/10 border-r border-outline-variant/20 transition-all">Pengeluaran</button>
-              <button type="button" id="tx-arus-pemasukan" onclick="setTxArus('Pemasukan')" class="flex-1 font-bold text-xs flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all">Pemasukan</button>
+            <div
+              class="flex rounded-md shadow-sm border border-outline-variant/30 overflow-hidden select-none bg-surface-container-low dark:bg-surface h-[42px]">
+              <button type="button" id="tx-arus-pengeluaran" onclick="setTxArus('Pengeluaran')"
+                class="flex-1 font-bold text-xs flex items-center justify-center text-error bg-error/10 border-r border-outline-variant/20 transition-all">Pengeluaran</button>
+              <button type="button" id="tx-arus-pemasukan" onclick="setTxArus('Pemasukan')"
+                class="flex-1 font-bold text-xs flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all">Pemasukan</button>
             </div>
             <input type="hidden" id="tx-form-arus" value="Pengeluaran">
           </div>
@@ -1017,36 +1215,50 @@
 
         <div class="grid grid-cols-2 gap-md">
           <div class="space-y-xs">
-            <label class="text-label-sm font-semibold text-on-surface-variant" for="tx-form-category">Rekening / Dompet (Kategori)</label>
-            <select id="tx-form-category" required class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface">
+            <label class="text-label-sm font-semibold text-on-surface-variant" for="tx-form-category">Rekening / Dompet
+              (Kategori)</label>
+            <select id="tx-form-category" required
+              class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface">
               <!-- Dynamically populated from banks list -->
             </select>
           </div>
           <div class="space-y-xs">
-            <label class="text-label-sm font-semibold text-on-surface-variant" for="tx-form-type">Pemilik Dana (Tipe)</label>
-            <select id="tx-form-type" required class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface">
+            <label class="text-label-sm font-semibold text-on-surface-variant" for="tx-form-type">Pemilik Dana
+              (Tipe)</label>
+            <select id="tx-form-type" required
+              class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface">
               <!-- Dynamically populated from owners list -->
             </select>
           </div>
         </div>
 
         <div class="space-y-xs">
-          <label class="text-label-sm font-semibold text-on-surface-variant" for="tx-form-amount">Jumlah Uang (Rupiah)</label>
+          <label class="text-label-sm font-semibold text-on-surface-variant" for="tx-form-amount">Jumlah Uang
+            (Rupiah)</label>
           <div class="relative group">
-            <span class="absolute left-md top-1/2 -translate-y-1/2 text-body-md font-bold text-outline-variant select-none">Rp</span>
-            <input id="tx-form-amount" required class="w-full pl-12 border-outline-variant rounded focus:border-primary focus:ring-primary text-headline-sm font-bold bg-surface-container-low dark:bg-surface text-right" type="number" min="0" placeholder="0">
+            <span
+              class="absolute left-md top-1/2 -translate-y-1/2 text-body-md font-bold text-outline-variant select-none">Rp</span>
+            <input id="tx-form-amount" required
+              class="w-full pl-12 border-outline-variant rounded focus:border-primary focus:ring-primary text-headline-sm font-bold bg-surface-container-low dark:bg-surface text-right"
+              type="number" min="0" placeholder="0">
           </div>
         </div>
 
         <div class="space-y-xs">
-          <label class="text-label-sm font-semibold text-on-surface-variant" for="tx-form-desc">Keterangan Tambahan</label>
-          <input id="tx-form-desc" required class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface" type="text" placeholder="Detail belanjaan, nama toko dll...">
+          <label class="text-label-sm font-semibold text-on-surface-variant" for="tx-form-desc">Keterangan
+            Tambahan</label>
+          <input id="tx-form-desc" required
+            class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface"
+            type="text" placeholder="Detail belanjaan, nama toko dll...">
         </div>
 
         <!-- Modal Footer Actions -->
         <div class="flex justify-end gap-md border-t border-outline-variant/20 pt-lg mt-lg">
-          <button type="button" onclick="closeTransactionModal()" class="px-lg py-md border border-outline-variant bg-white dark:bg-inverse-surface rounded font-bold hover:bg-surface-container-low transition-colors text-label-md">Batal</button>
-          <button type="submit" class="px-lg py-md bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container rounded font-bold hover:opacity-95 transition-all text-label-md shadow-sm">Simpan Transaksi</button>
+          <button type="button" onclick="closeTransactionModal()"
+            class="px-lg py-md border border-outline-variant bg-white dark:bg-inverse-surface rounded font-bold hover:bg-surface-container-low transition-colors text-label-md">Batal</button>
+          <button type="submit"
+            class="px-lg py-md bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container rounded font-bold hover:opacity-95 transition-all text-label-md shadow-sm">Simpan
+            Transaksi</button>
         </div>
       </form>
     </div>
@@ -1054,43 +1266,56 @@
 
 
   <!-- ==================== DIALOG MODAL: BUDGET FORM ==================== -->
-  <div id="budget-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-md transition-opacity duration-300">
-    <div class="bg-white dark:bg-inverse-surface border border-outline-variant/40 rounded-xl max-w-md w-full p-xl shadow-2xl flex flex-col gap-lg scale-95 transition-transform duration-300">
-      
+  <div id="budget-modal"
+    class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-md transition-opacity duration-300">
+    <div
+      class="bg-white dark:bg-inverse-surface border border-outline-variant/40 rounded-xl max-w-md w-full p-xl shadow-2xl flex flex-col gap-lg scale-95 transition-transform duration-300">
+
       <!-- Modal Header -->
       <div class="flex justify-between items-center border-b border-outline-variant/20 pb-sm">
         <h3 id="budget-modal-title" class="text-headline-sm font-bold text-on-surface">Buat Kategori Anggaran</h3>
-        <button onclick="closeBudgetModal()" class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high rounded-full p-1">close</button>
+        <button onclick="closeBudgetModal()"
+          class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high rounded-full p-1">close</button>
       </div>
 
       <!-- Modal Form Body -->
       <form onsubmit="handleBudgetSubmit(event)" class="space-y-md">
         <div class="space-y-xs">
-          <label class="text-label-sm font-semibold text-on-surface-variant" for="budget-form-category">Rekening / Dompet Anggaran</label>
-          <select id="budget-form-category" required class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface">
+          <label class="text-label-sm font-semibold text-on-surface-variant" for="budget-form-category">Rekening /
+            Dompet Anggaran</label>
+          <select id="budget-form-category" required
+            class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface">
             <!-- Dynamically populated from banks list -->
           </select>
         </div>
 
         <div class="space-y-xs">
           <label class="text-label-sm font-semibold text-on-surface-variant" for="budget-form-type">Pemilik Dana</label>
-          <select id="budget-form-type" required class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface">
+          <select id="budget-form-type" required
+            class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface">
             <!-- Dynamically populated from owners list -->
           </select>
         </div>
 
         <div class="space-y-xs">
-          <label class="text-label-sm font-semibold text-on-surface-variant" for="budget-form-limit">Batas Limit Bulanan (Rupiah)</label>
+          <label class="text-label-sm font-semibold text-on-surface-variant" for="budget-form-limit">Batas Limit Bulanan
+            (Rupiah)</label>
           <div class="relative group">
-            <span class="absolute left-md top-1/2 -translate-y-1/2 text-body-md font-bold text-outline-variant select-none">Rp</span>
-            <input id="budget-form-limit" required class="w-full pl-12 border-outline-variant rounded focus:border-primary focus:ring-primary text-headline-sm font-bold bg-surface-container-low dark:bg-surface text-right" type="number" min="0" placeholder="0">
+            <span
+              class="absolute left-md top-1/2 -translate-y-1/2 text-body-md font-bold text-outline-variant select-none">Rp</span>
+            <input id="budget-form-limit" required
+              class="w-full pl-12 border-outline-variant rounded focus:border-primary focus:ring-primary text-headline-sm font-bold bg-surface-container-low dark:bg-surface text-right"
+              type="number" min="0" placeholder="0">
           </div>
         </div>
 
         <!-- Modal Footer Actions -->
         <div class="flex justify-end gap-md border-t border-outline-variant/20 pt-lg mt-lg">
-          <button type="button" onclick="closeBudgetModal()" class="px-lg py-md border border-outline-variant bg-white dark:bg-inverse-surface rounded font-bold hover:bg-surface-container-low transition-colors text-label-md">Batal</button>
-          <button type="submit" class="px-lg py-md bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container rounded font-bold hover:opacity-95 transition-all text-label-md shadow-sm">Simpan Anggaran</button>
+          <button type="button" onclick="closeBudgetModal()"
+            class="px-lg py-md border border-outline-variant bg-white dark:bg-inverse-surface rounded font-bold hover:bg-surface-container-low transition-colors text-label-md">Batal</button>
+          <button type="submit"
+            class="px-lg py-md bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container rounded font-bold hover:opacity-95 transition-all text-label-md shadow-sm">Simpan
+            Anggaran</button>
         </div>
       </form>
     </div>
@@ -1098,33 +1323,43 @@
 
 
   <!-- ==================== DIALOG MODAL: FUND OWNER FORM ==================== -->
-  <div id="owner-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-md transition-opacity duration-300">
-    <div class="bg-white dark:bg-inverse-surface border border-outline-variant/40 rounded-xl max-w-md w-full p-xl shadow-2xl flex flex-col gap-lg scale-95 transition-transform duration-300">
-      
+  <div id="owner-modal"
+    class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-md transition-opacity duration-300">
+    <div
+      class="bg-white dark:bg-inverse-surface border border-outline-variant/40 rounded-xl max-w-md w-full p-xl shadow-2xl flex flex-col gap-lg scale-95 transition-transform duration-300">
+
       <!-- Modal Header -->
       <div class="flex justify-between items-center border-b border-outline-variant/20 pb-sm">
         <h3 id="owner-modal-title" class="text-headline-sm font-bold text-on-surface">Tambah Pemilik Dana</h3>
-        <button onclick="closeOwnerModal()" class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high rounded-full p-1">close</button>
+        <button onclick="closeOwnerModal()"
+          class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high rounded-full p-1">close</button>
       </div>
 
       <!-- Modal Form Body -->
       <form onsubmit="handleOwnerSubmit(event)" class="space-y-md">
         <input type="hidden" id="owner-form-id">
-        
+
         <div class="space-y-xs">
-          <label class="text-label-sm font-semibold text-on-surface-variant" for="owner-form-name">Nama Lengkap Pemilik</label>
-          <input id="owner-form-name" required class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface" type="text" placeholder="Contoh: Mas Panji (Pribadi), Bpk. H. Ahmad...">
+          <label class="text-label-sm font-semibold text-on-surface-variant" for="owner-form-name">Nama Lengkap
+            Pemilik</label>
+          <input id="owner-form-name" required
+            class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface"
+            type="text" placeholder="Contoh: Mas Panji (Pribadi), Bpk. H. Ahmad...">
         </div>
 
         <div class="flex items-center gap-sm pt-sm">
-          <input id="owner-form-utama" class="w-4 h-4 text-primary border-outline-variant rounded focus:ring-primary" type="checkbox">
-          <label class="text-body-sm text-on-surface-variant" for="owner-form-utama">Tetapkan sebagai Pemilik Utama (Pribadi)</label>
+          <input id="owner-form-utama" class="w-4 h-4 text-primary border-outline-variant rounded focus:ring-primary"
+            type="checkbox">
+          <label class="text-body-sm text-on-surface-variant" for="owner-form-utama">Tetapkan sebagai Pemilik Utama
+            (Pribadi)</label>
         </div>
 
         <!-- Modal Footer Actions -->
         <div class="flex justify-end gap-md border-t border-outline-variant/20 pt-lg mt-lg">
-          <button type="button" onclick="closeOwnerModal()" class="px-lg py-md border border-outline-variant bg-white dark:bg-inverse-surface rounded font-bold hover:bg-surface-container-low transition-colors text-label-md">Batal</button>
-          <button type="submit" class="px-lg py-md bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container rounded font-bold hover:opacity-95 transition-all text-label-md shadow-sm">Simpan</button>
+          <button type="button" onclick="closeOwnerModal()"
+            class="px-lg py-md border border-outline-variant bg-white dark:bg-inverse-surface rounded font-bold hover:bg-surface-container-low transition-colors text-label-md">Batal</button>
+          <button type="submit"
+            class="px-lg py-md bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container rounded font-bold hover:opacity-95 transition-all text-label-md shadow-sm">Simpan</button>
         </div>
       </form>
     </div>
@@ -1132,32 +1367,42 @@
 
 
   <!-- ==================== DIALOG MODAL: BANK/WALLET FORM ==================== -->
-  <div id="bank-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-md transition-opacity duration-300">
-    <div class="bg-white dark:bg-inverse-surface border border-outline-variant/40 rounded-xl max-w-md w-full p-xl shadow-2xl flex flex-col gap-lg scale-95 transition-transform duration-300">
-      
+  <div id="bank-modal"
+    class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-md transition-opacity duration-300">
+    <div
+      class="bg-white dark:bg-inverse-surface border border-outline-variant/40 rounded-xl max-w-md w-full p-xl shadow-2xl flex flex-col gap-lg scale-95 transition-transform duration-300">
+
       <!-- Modal Header -->
       <div class="flex justify-between items-center border-b border-outline-variant/20 pb-sm">
         <h3 id="bank-modal-title" class="text-headline-sm font-bold text-on-surface">Tambah Rekening / Dompet</h3>
-        <button onclick="closeBankModal()" class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high rounded-full p-1">close</button>
+        <button onclick="closeBankModal()"
+          class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high rounded-full p-1">close</button>
       </div>
 
       <!-- Modal Form Body -->
       <form onsubmit="handleBankSubmit(event)" class="space-y-md">
         <input type="hidden" id="bank-form-id">
-        
+
         <div class="space-y-xs">
-          <label class="text-label-sm font-semibold text-on-surface-variant" for="bank-form-name">Nama Bank / E-Wallet</label>
-          <input id="bank-form-name" required class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface" type="text" placeholder="Contoh: BCA - Tabungan Utama, GoPay, OVO, Cash...">
+          <label class="text-label-sm font-semibold text-on-surface-variant" for="bank-form-name">Nama Bank /
+            E-Wallet</label>
+          <input id="bank-form-name" required
+            class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface"
+            type="text" placeholder="Contoh: BCA - Tabungan Utama, GoPay, OVO, Cash...">
         </div>
 
         <div class="space-y-xs">
-          <label class="text-label-sm font-semibold text-on-surface-variant" for="bank-form-detail">Detail / Nomor Rekening</label>
-          <input id="bank-form-detail" required class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface" type="text" placeholder="Contoh: **** 8902, 0812-****-2345, Uang Tunai...">
+          <label class="text-label-sm font-semibold text-on-surface-variant" for="bank-form-detail">Detail / Nomor
+            Rekening</label>
+          <input id="bank-form-detail" required
+            class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface"
+            type="text" placeholder="Contoh: **** 8902, 0812-****-2345, Uang Tunai...">
         </div>
 
         <div class="space-y-xs">
           <label class="text-label-sm font-semibold text-on-surface-variant" for="bank-form-status">Status Akun</label>
-          <select id="bank-form-status" required class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface">
+          <select id="bank-form-status" required
+            class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface">
             <option value="Aktif">Aktif</option>
             <option value="Nonaktif">Nonaktif</option>
           </select>
@@ -1165,8 +1410,10 @@
 
         <!-- Modal Footer Actions -->
         <div class="flex justify-end gap-md border-t border-outline-variant/20 pt-lg mt-lg">
-          <button type="button" onclick="closeBankModal()" class="px-lg py-md border border-outline-variant bg-white dark:bg-inverse-surface rounded font-bold hover:bg-surface-container-low transition-colors text-label-md">Batal</button>
-          <button type="submit" class="px-lg py-md bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container rounded font-bold hover:opacity-95 transition-all text-label-md shadow-sm">Simpan</button>
+          <button type="button" onclick="closeBankModal()"
+            class="px-lg py-md border border-outline-variant bg-white dark:bg-inverse-surface rounded font-bold hover:bg-surface-container-low transition-colors text-label-md">Batal</button>
+          <button type="submit"
+            class="px-lg py-md bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container rounded font-bold hover:opacity-95 transition-all text-label-md shadow-sm">Simpan</button>
         </div>
       </form>
     </div>
@@ -1320,7 +1567,7 @@
           console.error("Gagal parse localstorage, reset data default.");
         }
       }
-      
+
       state.budgets = [
         { Kategori: "BCA - Tabungan Utama", Limit: 5000000, Tipe: "Mas Panji (Pribadi)" },
         { Kategori: "GoPay", Limit: 2000000, Tipe: "Mas Panji (Pribadi)" },
@@ -1615,26 +1862,26 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
     appendRow(sheet, rowData);
   }
 }`;
-      
+
       document.getElementById("apps-script-textarea").value = appsScriptCode;
     }
 
     // ==================== GOOGLE SHEETS SYNC CLIENT ====================
     async function syncFromSheets() {
       if (!state.settings.sheetsUrl) return;
-      
+
       showSyncIndicator(true, "Sinkronisasi...");
       const url = `${state.settings.sheetsUrl}?key=${encodeURIComponent(state.settings.sheetsToken)}`;
-      
+
       try {
         const response = await fetch(url);
         if (!response.ok) throw new Error("Gagal mengambil data dari Google Sheets API");
         const json = await response.json();
-        
+
         if (json.success) {
           state.transactions = json.transactions || [];
           state.budgets = json.budgets || [];
-          
+
           if (json.settings && json.settings.length > 0) {
             json.settings.forEach(s => {
               if (s.Key === "profileName") state.settings.profileName = s.Value;
@@ -1645,7 +1892,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
                   if (Array.isArray(parsed) && parsed.length > 0) {
                     state.settings.fundOwners = parsed;
                   }
-                } catch(e) { console.error("Error parsing fundOwners from sheet", e); }
+                } catch (e) { console.error("Error parsing fundOwners from sheet", e); }
               }
               if (s.Key === "banks") {
                 try {
@@ -1653,13 +1900,13 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
                   if (Array.isArray(parsed) && parsed.length > 0) {
                     state.settings.banks = parsed;
                   }
-                } catch(e) { console.error("Error parsing banks from sheet", e); }
+                } catch (e) { console.error("Error parsing banks from sheet", e); }
               }
             });
           }
-          
+
           state.settings.lastSync = new Date().toLocaleTimeString("id-ID") + " WIB";
-          
+
           const sheetsCollabs = json.collaborators || [];
           const currentCollabs = ["panji.newbie@gmail.com"];
           sheetsCollabs.forEach(email => {
@@ -1668,7 +1915,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
             }
           });
           state.settings.collaborators = currentCollabs;
-          
+
           saveStateLocally();
           showSyncIndicator(false, "Terhubung ke Sheets");
           renderAll();
@@ -1684,13 +1931,13 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
 
     async function sendSheetsAction(action, payloadData = {}) {
       if (!state.settings.sheetsUrl) return false;
-      
+
       const payload = {
         action: action,
         key: state.settings.sheetsToken,
         ...payloadData
       };
-      
+
       try {
         const response = await fetch(state.settings.sheetsUrl, {
           method: "POST",
@@ -1717,13 +1964,13 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       const time = document.getElementById("db-sync-time");
       const syncBtn = document.getElementById("sync-now-btn");
       const mobileIndicator = document.getElementById("connection-status-mobile");
-      
+
       if (state.settings.sheetsUrl) {
         badge.innerText = "Sheets";
         badge.className = `px-2 py-0.5 rounded-full text-[10px] font-bold ${isError ? 'bg-red-200 text-red-800' : 'bg-primary-container text-on-primary-container'}`;
         time.innerText = `Sync: ${state.settings.lastSync || 'Menunggu...'}`;
         syncBtn.disabled = loading;
-        
+
         if (mobileIndicator) {
           mobileIndicator.className = `w-3 h-3 rounded-full ${isError ? 'bg-red-500' : (loading ? 'bg-yellow-500 animate-pulse' : 'bg-green-500')}`;
           mobileIndicator.title = `Status Koneksi: Sheets (${time.innerText})`;
@@ -1733,7 +1980,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
         badge.className = "px-2 py-0.5 rounded-full text-[10px] font-bold bg-secondary-container text-on-secondary-container";
         time.innerText = "Update: Offline Mode";
         syncBtn.disabled = true;
-        
+
         if (mobileIndicator) {
           mobileIndicator.className = "w-3 h-3 rounded-full bg-slate-400";
           mobileIndicator.title = "Status Koneksi: Lokal";
@@ -1753,10 +2000,10 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
     function navigate(tabName) {
       state.activeTab = tabName;
       document.querySelectorAll(".view-tab").forEach(tab => tab.classList.add("hidden"));
-      
+
       const activeView = document.getElementById(`view-${tabName}`);
       if (activeView) activeView.classList.remove("hidden");
-      
+
       updateSidebarActiveItem();
       renderAll();
     }
@@ -1764,7 +2011,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
     function updateSidebarActiveItem() {
       const activeClass = "bg-primary-container text-on-primary-container rounded-full scale-95 transition-transform";
       const inactiveClass = "text-on-surface-variant hover:bg-surface-container-high rounded-full transition-all scale-95 hover:scale-100";
-      
+
       document.querySelectorAll("aside nav a, aside div a").forEach(link => {
         const tab = link.id.replace("nav-", "");
         if (tab === state.activeTab) {
@@ -1795,7 +2042,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
     function renderAll() {
       updateSyncCard();
       document.getElementById("dashboard-user-name").innerText = state.settings.profileName;
-      
+
       if (state.activeTab === "dashboard") {
         renderDashboard();
       } else if (state.activeTab === "transactions") {
@@ -1812,22 +2059,22 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
     // ==================== BERANDA/DASHBOARD COMPONENT ====================
     function renderDashboard() {
       const { netWorth, totalBalance, totalIncome, totalExpense, titipanBalance } = calculateStats();
-      
+
       document.getElementById("card-net-worth").innerText = formatRupiah(netWorth);
       document.getElementById("card-total-balance").innerText = formatRupiah(totalBalance);
       document.getElementById("card-total-income").innerText = formatRupiah(totalIncome);
       document.getElementById("card-total-expense").innerText = formatRupiah(totalExpense);
       document.getElementById("titipan-balance-sub").innerText = `Titipan: ${formatRupiah(titipanBalance)}`;
-      
+
       const savingsRate = totalIncome > 0 ? Math.max(0, Math.round(((totalIncome - totalExpense) / totalIncome) * 100)) : 0;
       document.getElementById("saving-rate-percentage").innerText = `Savings Rate: ${savingsRate}%`;
 
       const totalLimit = state.budgets.reduce((sum, b) => sum + b.Limit, 0);
       const ratio = totalLimit > 0 ? Math.min(100, Math.round((totalExpense / totalLimit) * 100)) : 0;
-      
+
       const bar = document.getElementById("total-budget-progress-bar");
       bar.style.width = `${ratio}%`;
-      
+
       if (ratio >= 90) {
         bar.className = "bg-error h-full rounded-full transition-all duration-500";
       } else if (ratio >= 70) {
@@ -1835,7 +2082,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       } else {
         bar.className = "bg-primary h-full rounded-full transition-all duration-500";
       }
-      
+
       document.getElementById("total-budget-percentage-text").innerText = `${ratio}% terpakai`;
       document.getElementById("total-budget-rem-text").innerText = `Sisa Limit: ${formatRupiah(Math.max(0, totalLimit - totalExpense))}`;
 
@@ -1843,24 +2090,24 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
 
       const list = document.getElementById("recent-transactions-list");
       list.innerHTML = "";
-      
+
       const recents = [...state.transactions]
         .sort((a, b) => new Date(b.Tanggal) - new Date(a.Tanggal))
         .slice(0, 4);
-        
+
       if (recents.length === 0) {
         list.innerHTML = `<p class="text-xs text-on-surface-variant text-center py-xl">Belum ada transaksi</p>`;
         return;
       }
-      
+
       recents.forEach(tx => {
         const item = document.createElement("div");
         item.className = "flex items-center gap-md group cursor-pointer border-b border-outline-variant/10 pb-md last:border-0 last:pb-0";
         item.onclick = () => { navigate("transactions"); };
-        
+
         const isExp = tx.Arus === "Pengeluaran";
         const icon = categoryIcons[tx.Kategori] || "receipt";
-        
+
         item.innerHTML = `
           <div class="w-12 h-12 bg-surface-container dark:bg-surface rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
             <span class="material-symbols-outlined">${icon}</span>
@@ -1890,13 +2137,13 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       const container = document.getElementById("category-balances-chart");
       if (!container) return;
       container.innerHTML = "";
-      
+
       const banks = state.settings.banks || [];
       if (banks.length === 0) {
         container.innerHTML = `<p class="col-span-3 text-xs text-on-surface-variant text-center py-lg">Belum ada data rekening / dompet.</p>`;
         return;
       }
-      
+
       const balances = banks.map(bank => {
         const income = state.transactions
           .filter(t => t.Kategori === bank.name && t.Arus === "Pemasukan")
@@ -1907,16 +2154,16 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
         const balance = income - expense;
         return { name: bank.name, balance, status: bank.status };
       });
-      
+
       const totalBalanceVal = balances.reduce((sum, b) => sum + Math.max(0, b.balance), 0) || 1;
-      
+
       balances.forEach(b => {
         const icon = categoryIcons[b.name] || "credit_card";
         const pct = Math.min(100, Math.max(0, Math.round((Math.max(0, b.balance) / totalBalanceVal) * 100)));
-        
+
         const card = document.createElement("div");
         card.className = "bg-surface-container-low dark:bg-inverse-surface/30 p-lg rounded-xl border border-outline-variant/30 flex flex-col justify-between gap-md hover:shadow-md transition-all duration-300";
-        
+
         card.innerHTML = `
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-md">
@@ -1948,34 +2195,34 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
     function renderWeeklySpendChart() {
       const container = document.getElementById("weekly-chart-container");
       container.innerHTML = "";
-      
+
       const days = [];
       const labels = ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"];
       const dateList = [];
-      
+
       for (let i = 6; i >= 0; i--) {
         const d = new Date();
         d.setDate(d.getDate() - i);
         dateList.push(d);
       }
-      
+
       const spendValues = dateList.map(date => {
         const dateStr = formatDateISO(date);
         return state.transactions
           .filter(t => t.Tanggal === dateStr && t.Arus === "Pengeluaran")
           .reduce((sum, t) => sum + t.Jumlah, 0);
       });
-      
+
       const maxVal = Math.max(...spendValues, 100000);
-      
+
       dateList.forEach((date, index) => {
         const amount = spendValues[index];
         const pct = Math.min(100, Math.round((amount / maxVal) * 100));
         const dayLabel = labels[date.getDay()];
-        
+
         const col = document.createElement("div");
         col.className = "flex-grow flex flex-col items-center gap-sm h-full justify-end group";
-        
+
         col.innerHTML = `
           <div class="absolute -top-6 bg-on-surface text-surface text-[10px] px-2 py-0.5 rounded shadow opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 whitespace-nowrap">
             ${formatRupiah(amount)}
@@ -1992,9 +2239,9 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
     function renderTransactions() {
       const filterCat = document.getElementById("tx-filter-category");
       const currentSelected = filterCat.value;
-      
+
       filterCat.innerHTML = `<option value="Semua">Semua Kategori</option>`;
-      
+
       const categories = [...new Set(state.transactions.map(t => t.Kategori))];
       categories.forEach(c => {
         const opt = document.createElement("option");
@@ -2002,11 +2249,11 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
         opt.innerText = c;
         filterCat.appendChild(opt);
       });
-      
+
       if (categories.includes(currentSelected)) {
         filterCat.value = currentSelected;
       }
-      
+
       filterTransactions(false);
     }
 
@@ -2014,14 +2261,14 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       const search = document.getElementById("tx-search").value.toLowerCase();
       const type = document.getElementById("tx-filter-type").value;
       const category = document.getElementById("tx-filter-category").value;
-      
+
       filteredTxList = state.transactions.filter(t => {
-        const matchesSearch = t.Keterangan.toLowerCase().includes(search) || 
-                              t.Kategori.toLowerCase().includes(search) ||
-                              t.Jumlah.toString().includes(search);
+        const matchesSearch = t.Keterangan.toLowerCase().includes(search) ||
+          t.Kategori.toLowerCase().includes(search) ||
+          t.Jumlah.toString().includes(search);
         const matchesType = type === "Semua" || t.Tipe === type;
         const matchesCategory = category === "Semua" || t.Kategori === category;
-        
+
         return matchesSearch && matchesType && matchesCategory;
       });
 
@@ -2039,18 +2286,18 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       const body = document.getElementById("tx-table-body");
       const empty = document.getElementById("tx-empty-state");
       body.innerHTML = "";
-      
+
       const totalItems = filteredTxList.length;
       const totalPages = Math.ceil(totalItems / TX_PER_PAGE) || 1;
-      
+
       if (currentTxPage > totalPages) currentTxPage = totalPages;
       if (currentTxPage < 1) currentTxPage = 1;
-      
+
       const start = (currentTxPage - 1) * TX_PER_PAGE;
       const end = Math.min(start + TX_PER_PAGE, totalItems);
-      
+
       const pageData = filteredTxList.slice(start, end);
-      
+
       if (totalItems === 0) {
         empty.classList.remove("hidden");
         document.getElementById("tx-pagination-desc").innerText = "Menampilkan 0 dari 0 transaksi";
@@ -2058,16 +2305,16 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
         document.getElementById("tx-next-page").disabled = true;
         return;
       }
-      
+
       empty.classList.add("hidden");
-      
+
       pageData.forEach(tx => {
         const row = document.createElement("tr");
         row.className = "hover:bg-surface-container-low dark:hover:bg-surface-container transition-colors group cursor-pointer";
-        
+
         const isExp = tx.Arus === "Pengeluaran";
         const icon = categoryIcons[tx.Kategori] || "receipt";
-        
+
         row.innerHTML = `
           <td class="px-lg py-lg text-body-md text-on-surface whitespace-nowrap">${formatDateShort(tx.Tanggal)}</td>
           <td class="px-lg py-lg whitespace-nowrap">
@@ -2096,15 +2343,15 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
             </div>
           </td>
         `;
-        
+
         row.addEventListener("click", (e) => {
           if (e.target.closest("button")) return;
           editTransaction(tx.ID);
         });
-        
+
         body.appendChild(row);
       });
-      
+
       document.getElementById("tx-pagination-desc").innerText = `Menampilkan ${start + 1}-${end} dari ${totalItems} transaksi`;
       document.getElementById("tx-prev-page").disabled = currentTxPage === 1;
       document.getElementById("tx-next-page").disabled = currentTxPage === totalPages;
@@ -2129,10 +2376,10 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
     function renderBudgets() {
       const grid = document.getElementById("budget-categories-grid");
       grid.innerHTML = "";
-      
+
       const { totalExpense } = calculateStats();
       const totalLimit = state.budgets.reduce((sum, b) => sum + b.Limit, 0);
-      
+
       const primaryOwner = (state.settings.fundOwners.find(o => o.isUtama) || { name: "Mas Panji (Pribadi)" }).name;
 
       const spentPribadi = state.transactions
@@ -2141,7 +2388,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       const limitPribadi = state.budgets
         .filter(b => b.Tipe === primaryOwner)
         .reduce((sum, b) => sum + b.Limit, 0);
-        
+
       const spentTitipan = state.transactions
         .filter(t => t.Arus === "Pengeluaran" && t.Tipe !== primaryOwner)
         .reduce((sum, t) => sum + t.Jumlah, 0);
@@ -2152,9 +2399,9 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       document.getElementById("budget-rem-pribadi").innerText = formatRupiah(Math.max(0, limitPribadi - spentPribadi));
       document.getElementById("budget-rem-pribadi-sub").innerText = formatRupiah(Math.max(0, limitPribadi - spentPribadi));
       document.getElementById("budget-rem-titipan-sub").innerText = formatRupiah(Math.max(0, limitTitipan - spentTitipan));
-      
+
       document.getElementById("budget-total-limit").innerText = formatRupiah(totalLimit);
-      
+
       const totalRatio = totalLimit > 0 ? Math.min(100, Math.round((totalExpense / totalLimit) * 100)) : 0;
       document.getElementById("budget-ratio-bar").style.width = `${totalRatio}%`;
       document.getElementById("budget-ratio-text").innerText = `Terpakai ${totalRatio}%`;
@@ -2164,14 +2411,14 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
         const spent = state.transactions
           .filter(t => t.Kategori === b.Kategori && t.Arus === "Pengeluaran")
           .reduce((sum, t) => sum + t.Jumlah, 0);
-          
+
         const pct = b.Limit > 0 ? Math.min(100, Math.round((spent / b.Limit) * 100)) : 0;
         const icon = categoryIcons[b.Kategori] || "account_balance_wallet";
-        
+
         let statusText = "Aman";
         let badgeColor = "bg-primary-fixed text-on-primary-fixed";
         let barColor = "bg-primary";
-        
+
         if (pct >= 90) {
           statusText = "Kritis";
           badgeColor = "bg-error-container text-on-error-container";
@@ -2184,7 +2431,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
 
         const card = document.createElement("div");
         card.className = "bg-surface-container-lowest dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl hover:shadow-md transition-shadow duration-300 flex flex-col justify-between min-h-[220px]";
-        
+
         card.innerHTML = `
           <div>
             <div class="flex justify-between items-start mb-lg">
@@ -2242,7 +2489,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
         tipText.innerText = "Data transaksi Anda belum cukup untuk memberikan tips yang dipersonalisasi. Tambah beberapa transaksi untuk melihat analisis cerdas.";
         return;
       }
-      
+
       const highCategory = getHighestExpenseCategory();
       if (highCategory && highCategory.total > 0) {
         tipText.innerHTML = `Pengeluaran terbesar Anda bulan ini dialokasikan pada kategori <strong class="text-primary font-bold dark:text-on-primary-container">${highCategory.kategori}</strong> dengan total <strong class="text-error font-bold">${formatRupiah(highCategory.total)}</strong>. Mengurangi pengeluaran di bagian ini hingga 10% dapat menghemat saldo Anda sebesar <strong>${formatRupiah(Math.round(highCategory.total * 0.1))}</strong>.`;
@@ -2254,10 +2501,10 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
     // ==================== REPORTS/STATISTICS VIEW ====================
     function renderReports() {
       const { totalIncome, totalExpense } = calculateStats();
-      
+
       document.getElementById("report-total-income").innerText = formatRupiah(totalIncome);
       document.getElementById("report-total-expense").innerText = formatRupiah(totalExpense);
-      
+
       const savingsRate = totalIncome > 0 ? Math.max(0, Math.round(((totalIncome - totalExpense) / totalIncome) * 100)) : 0;
       document.getElementById("report-savings-rate").innerText = `${savingsRate}%`;
       document.getElementById("report-savings-rate-bar").style.width = `${savingsRate}%`;
@@ -2267,7 +2514,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       const totalExpenseExp = state.transactions
         .filter(t => t.Arus === "Pengeluaran")
         .reduce((sum, t) => sum + t.Jumlah, 0) || 1;
-        
+
       const primaryOwner = (state.settings.fundOwners.find(o => o.isUtama) || { name: "Mas Panji (Pribadi)" }).name;
       const spentPribadi = state.transactions
         .filter(t => t.Arus === "Pengeluaran" && t.Tipe === primaryOwner)
@@ -2275,15 +2522,15 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       const spentTitipan = state.transactions
         .filter(t => t.Arus === "Pengeluaran" && t.Tipe !== primaryOwner)
         .reduce((sum, t) => sum + t.Jumlah, 0);
-        
+
       const pctPribadi = Math.round((spentPribadi / totalExpenseExp) * 100);
       const pctTitipan = Math.round((spentTitipan / totalExpenseExp) * 100);
 
       document.getElementById("donut-total-val").innerText = formatRupiah(totalExpenseExp);
-      
+
       const circPribadi = document.getElementById("donut-pribadi");
       const circTitipan = document.getElementById("donut-titipan");
-      
+
       circPribadi.setAttribute("stroke-dasharray", `${pctPribadi} 100`);
       circTitipan.setAttribute("stroke-dasharray", `${pctTitipan} 100`);
       circTitipan.setAttribute("stroke-dashoffset", `-${pctPribadi}`);
@@ -2295,7 +2542,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
 
       const tableBody = document.getElementById("report-allocations-table");
       tableBody.innerHTML = "";
-      
+
       const sortedBudgets = [...state.budgets].map(b => {
         const spent = state.transactions
           .filter(t => t.Kategori === b.Kategori && t.Arus === "Pengeluaran")
@@ -2311,14 +2558,14 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       sortedBudgets.forEach(b => {
         const row = document.createElement("tr");
         row.className = "hover:bg-surface-container-low transition-colors";
-        
+
         const rem = Math.max(0, b.Limit - b.spent);
         const icon = categoryIcons[b.Kategori] || "receipt";
-        
+
         let pct = b.Limit > 0 ? Math.round((b.spent / b.Limit) * 100) : 0;
         let badgeColor = "bg-primary-fixed text-on-primary-fixed";
         let status = "Aman";
-        
+
         if (pct >= 90) {
           badgeColor = "bg-error-container text-on-error-container";
           status = "Kritis";
@@ -2348,10 +2595,10 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
     function renderMultiMonthChart() {
       const container = document.getElementById("multi-month-chart");
       container.innerHTML = "";
-      
+
       const months = [];
       const mNames = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
-      
+
       for (let i = 3; i >= 0; i--) {
         const d = new Date();
         d.setMonth(d.getMonth() - i);
@@ -2369,14 +2616,14 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
             return d.getMonth() === m.month && d.getFullYear() === m.year && t.Arus === "Pemasukan";
           })
           .reduce((sum, t) => sum + t.Jumlah, 0);
-          
+
         const expense = state.transactions
           .filter(t => {
             const d = new Date(t.Tanggal);
             return d.getMonth() === m.month && d.getFullYear() === m.year && t.Arus === "Pengeluaran";
           })
           .reduce((sum, t) => sum + t.Jumlah, 0);
-          
+
         return { ...m, income, expense };
       });
 
@@ -2385,10 +2632,10 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       chartData.forEach(data => {
         const incPct = Math.min(100, Math.round((data.income / maxVal) * 100));
         const expPct = Math.min(100, Math.round((data.expense / maxVal) * 100));
-        
+
         const col = document.createElement("div");
         col.className = "flex-grow flex flex-col items-center gap-sm h-full justify-end group relative";
-        
+
         col.innerHTML = `
           <div class="absolute -top-10 bg-on-surface text-surface text-[10px] px-2 py-1 rounded shadow opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 whitespace-nowrap flex flex-col gap-0.5">
             <span class="text-primary font-bold">Masuk: ${formatRupiah(data.income)}</span>
@@ -2411,7 +2658,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       document.getElementById("settings-name").value = state.settings.profileName;
       document.getElementById("settings-lock-toggle").checked = state.settings.authEnabled;
       document.getElementById("settings-pin").value = state.settings.pinCode;
-      
+
       const pinSect = document.getElementById("settings-pin-section");
       if (state.settings.authEnabled) {
         pinSect.classList.remove("hidden");
@@ -2421,7 +2668,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
 
       document.getElementById("sync-sheets-url").value = state.settings.sheetsUrl;
       document.getElementById("sync-sheets-token").value = state.settings.sheetsToken;
-      
+
       const disconnectBtn = document.getElementById("disconnect-btn");
       if (disconnectBtn) disconnectBtn.disabled = !state.settings.sheetsUrl;
 
@@ -2447,19 +2694,19 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
     async function saveProfile() {
       const name = document.getElementById("settings-name").value.trim();
       if (!name) return alert("Nama profil tidak boleh kosong.");
-      
+
       state.settings.profileName = name;
       saveStateLocally();
-      
+
       sendSheetsAction("saveSetting", { data: { Key: "profileName", Value: name } });
-      
+
       // Simpan nama profil ke Firebase RTDB per akun pengguna
       await saveUserDataToFirebase({
         profileName: name,
         sheetsUrl: state.settings.sheetsUrl,
         sheetsToken: state.settings.sheetsToken
       });
-      
+
       alert("Nama profil berhasil disimpan!");
       renderAll();
     }
@@ -2476,12 +2723,12 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       if (pin.length < 4 || pin.length > 6 || isNaN(pin)) {
         return alert("PIN harus berupa angka sepanjang 4 hingga 6 karakter.");
       }
-      
+
       state.settings.pinCode = pin;
       saveStateLocally();
-      
+
       sendSheetsAction("saveSetting", { data: { Key: "pinCode", Value: pin } });
-      
+
       alert("PIN Keamanan berhasil diperbarui!");
       renderAll();
     }
@@ -2489,20 +2736,20 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
     async function saveSyncSettings() {
       const url = document.getElementById("sync-sheets-url").value.trim();
       const token = document.getElementById("sync-sheets-token").value.trim();
-      
+
       if (!url) return alert("URL Aplikasi Web Google Apps Script tidak boleh kosong.");
-      
+
       state.settings.sheetsUrl = url;
       state.settings.sheetsToken = token;
       saveStateLocally();
-      
+
       // Simpan URL Google Sheets ke Firebase RTDB per akun pengguna
       await saveUserDataToFirebase({
         sheetsUrl: url,
         sheetsToken: token,
         profileName: state.settings.profileName
       });
-      
+
       alert("Koneksi tersimpan! URL Google Sheets telah disimpan ke akun Anda. Memulai sinkronisasi...");
       syncFromSheets();
     }
@@ -2514,14 +2761,14 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
         state.settings.lastSync = "";
         state.settings.collaborators = ["panji.newbie@gmail.com"];
         saveStateLocally();
-        
+
         // Hapus sheetsUrl dari Firebase RTDB juga
         await saveUserDataToFirebase({
           sheetsUrl: "",
           sheetsToken: "",
           profileName: state.settings.profileName
         });
-        
+
         alert("Koneksi berhasil diputus.");
         renderAll();
       }
@@ -2549,45 +2796,45 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       const emailVal = document.getElementById("login-email").value.trim().toLowerCase();
       const pinVal = document.getElementById("login-pin").value;
       const errorMsg = document.getElementById("login-error");
-      
+
       const submitBtn = event.target.querySelector('button[type="submit"]');
       const originalBtnText = submitBtn.innerHTML;
-      
+
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span> Memverifikasi...';
-      
+
       try {
         // Login via Firebase Authentication
         const userCredential = await signInWithEmailAndPassword(auth, emailVal, pinVal);
         const uid = userCredential.user.uid;
         errorMsg.classList.add("hidden");
-        
+
         const remember = document.getElementById("remember").checked;
         if (remember) {
           localStorage.setItem("atur_uang_session", "active");
         } else {
           sessionStorage.setItem("atur_uang_session", "active");
         }
-        
+
         state.settings.profileEmail = emailVal;
         state.currentUid = uid;
-        
+
         // Muat data pengguna (sheetsUrl, profileName, dll.) dari Firebase RTDB
         submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span> Memuat data akun...';
         await loadUserDataFromFirebase(uid);
-        
+
         saveStateLocally();
-        
+
         const lockScreen = document.getElementById("lock-screen");
         const appShell = document.getElementById("app-shell");
-        
+
         lockScreen.style.transform = "translateY(-100%)";
         setTimeout(() => lockScreen.classList.add("hidden"), 500);
         appShell.classList.remove("hidden");
         state.isAuthenticated = true;
-        
+
         document.getElementById("login-pin").value = "";
-        
+
         if (state.settings.sheetsUrl) {
           syncFromSheets();
         } else {
@@ -2596,7 +2843,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       } catch (error) {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalBtnText;
-        
+
         let errMsg = "Terjadi kesalahan saat masuk. Silakan periksa kembali email & sandi Anda.";
         if (error.code === "auth/invalid-credential" || error.code === "auth/wrong-password" || error.code === "auth/user-not-found") {
           errMsg = "Email atau Kata Sandi salah. Silakan coba lagi.";
@@ -2605,7 +2852,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
         } else if (error.code === "auth/too-many-requests") {
           errMsg = "Terlalu banyak percobaan gagal. Coba lagi nanti.";
         }
-        
+
         errorMsg.innerText = errMsg;
         errorMsg.classList.remove("hidden");
         document.getElementById("login-pin").value = "";
@@ -2618,7 +2865,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
         localStorage.removeItem("atur_uang_session");
         sessionStorage.removeItem("atur_uang_session");
         state.currentUid = null;
-        
+
         signOut(auth).then(() => {
           // onAuthStateChanged akan menangani UI reset
           console.log('[Firebase] Logout berhasil.');
@@ -2635,14 +2882,14 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
 
     // ==================== EDIT AND FORM ACTION MODALS ====================
     let txArus = "Pengeluaran";
-    
+
     function setTxArus(arus) {
       txArus = arus;
       document.getElementById("tx-form-arus").value = arus;
-      
+
       const expBtn = document.getElementById("tx-arus-pengeluaran");
       const incBtn = document.getElementById("tx-arus-pemasukan");
-      
+
       if (arus === "Pengeluaran") {
         expBtn.className = "flex-1 font-bold text-xs flex items-center justify-center text-error bg-error/10 border-r border-outline-variant/20 transition-all";
         incBtn.className = "flex-1 font-bold text-xs flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all";
@@ -2655,16 +2902,16 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
     function openTransactionModal(editId = null) {
       const modal = document.getElementById("tx-modal");
       modal.classList.remove("hidden");
-      
+
       populateDropdowns();
-      
+
       const primaryOwner = (state.settings.fundOwners.find(o => o.isUtama) || { name: "Mas Panji (Pribadi)" }).name;
       const primaryBank = (state.settings.banks.find(b => b.status === "Aktif") || { name: "BCA - Tabungan Utama" }).name;
-      
+
       setTimeout(() => {
         document.getElementById("tx-form-amount").focus();
       }, 50);
-      
+
       if (editId) {
         document.getElementById("tx-modal-title").innerText = "Edit Rincian Transaksi";
         const tx = state.transactions.find(t => t.ID === editId);
@@ -2695,7 +2942,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
 
     function handleTransactionSubmit(event) {
       event.preventDefault();
-      
+
       const id = document.getElementById("tx-form-id").value;
       const date = document.getElementById("tx-form-date").value;
       const category = document.getElementById("tx-form-category").value;
@@ -2703,7 +2950,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       const amount = Number(document.getElementById("tx-form-amount").value);
       const desc = document.getElementById("tx-form-desc").value.trim();
       const arus = document.getElementById("tx-form-arus").value;
-      
+
       const txData = {
         ID: id || "tx_" + Date.now(),
         Tanggal: date,
@@ -2727,7 +2974,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
 
       saveStateLocally();
       closeTransactionModal();
-      
+
       alert(id ? "Transaksi berhasil diperbarui." : "Transaksi baru berhasil dicatat.");
       renderAll();
     }
@@ -2739,13 +2986,13 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
 
     function deleteTransaction(id, event) {
       if (event) event.stopPropagation();
-      
+
       if (confirm("Apakah Anda yakin ingin menghapus transaksi ini secara permanen?")) {
         state.transactions = state.transactions.filter(t => t.ID !== id);
         saveStateLocally();
-        
+
         sendSheetsAction("deleteTransaction", { id: id });
-        
+
         alert("Transaksi berhasil dihapus.");
         renderAll();
       }
@@ -2753,13 +3000,13 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
 
     function openBudgetModal(categoryName = null) {
       document.getElementById("budget-modal").classList.remove("hidden");
-      
+
       populateDropdowns();
-      
+
       const primaryOwner = (state.settings.fundOwners.find(o => o.isUtama) || { name: "Mas Panji (Pribadi)" }).name;
       const selectCat = document.getElementById("budget-form-category");
       const selectType = document.getElementById("budget-form-type");
-      
+
       if (categoryName) {
         document.getElementById("budget-modal-title").innerText = "Edit Anggaran Rekening";
         const b = state.budgets.find(item => item.Kategori === categoryName);
@@ -2786,12 +3033,12 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
 
     function handleBudgetSubmit(event) {
       event.preventDefault();
-      
+
       const selectCat = document.getElementById("budget-form-category");
       const category = selectCat.value;
       const type = document.getElementById("budget-form-type").value;
       const limit = Number(document.getElementById("budget-form-limit").value);
-      
+
       const budgetData = {
         Kategori: category,
         Tipe: type,
@@ -2807,7 +3054,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
 
       saveStateLocally();
       closeBudgetModal();
-      
+
       sendSheetsAction("saveBudget", { data: budgetData });
 
       alert("Batas anggaran rekening berhasil disimpan!");
@@ -2821,13 +3068,13 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
 
     function deleteBudget(category, event) {
       if (event) event.stopPropagation();
-      
+
       if (confirm(`Apakah Anda yakin ingin menghapus batas anggaran kategori '${category}'?`)) {
         state.budgets = state.budgets.filter(b => b.Kategori !== category);
         saveStateLocally();
-        
+
         sendSheetsAction("deleteBudget", { kategori: category });
-        
+
         alert("Batas anggaran kategori berhasil dihapus.");
         renderAll();
       }
@@ -2836,14 +3083,14 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
     // ==================== EXTRA UTILITIES & FORMATTING ====================
     function calculateStats() {
       const primaryOwner = (state.settings.fundOwners.find(o => o.isUtama) || { name: "Mas Panji (Pribadi)" }).name;
-      
+
       const incPribadi = state.transactions
         .filter(t => t.Arus === "Pemasukan" && t.Tipe === primaryOwner)
         .reduce((sum, t) => sum + t.Jumlah, 0);
       const expPribadi = state.transactions
         .filter(t => t.Arus === "Pengeluaran" && t.Tipe === primaryOwner)
         .reduce((sum, t) => sum + t.Jumlah, 0);
-        
+
       const netWorth = incPribadi - expPribadi;
 
       const totalInc = state.transactions
@@ -2852,18 +3099,18 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       const totalExp = state.transactions
         .filter(t => t.Arus === "Pengeluaran")
         .reduce((sum, t) => sum + t.Jumlah, 0);
-        
+
       const totalBalance = totalInc - totalExp;
 
       const totalIncome = totalInc;
       const totalExpense = totalExp;
-      
+
       const titipanBalance = state.transactions
         .filter(t => t.Tipe !== primaryOwner && t.Arus === "Pemasukan")
         .reduce((sum, t) => sum + t.Jumlah, 0) -
         state.transactions
-        .filter(t => t.Tipe !== primaryOwner && t.Arus === "Pengeluaran")
-        .reduce((sum, t) => sum + t.Jumlah, 0);
+          .filter(t => t.Tipe !== primaryOwner && t.Arus === "Pengeluaran")
+          .reduce((sum, t) => sum + t.Jumlah, 0);
 
       return { netWorth, totalBalance, totalIncome, totalExpense, titipanBalance };
     }
@@ -2875,10 +3122,10 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
         .forEach(t => {
           grouped[t.Kategori] = (grouped[t.Kategori] || 0) + t.Jumlah;
         });
-        
+
       let highestCat = "";
       let highestAmt = 0;
-      
+
       for (const k in grouped) {
         if (grouped[k] > highestAmt) {
           highestAmt = grouped[k];
@@ -2913,10 +3160,10 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       const months = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
       const parts = dateStr.split("-");
       if (parts.length !== 3) return dateStr;
-      
+
       const day = Number(parts[2]);
       const month = months[Number(parts[1]) - 1];
-      
+
       return `${day} ${month}`;
     }
 
@@ -2924,20 +3171,20 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       const months = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
       const parts = dateStr.split("-");
       if (parts.length !== 3) return dateStr;
-      
+
       const day = Number(parts[2]);
       const month = months[Number(parts[1]) - 1];
       const year = parts[0];
-      
+
       return `${day} ${month} ${year}`;
     }
 
     function toggleSidebar() {
       const wrapper = document.body;
       const icon = document.getElementById("toggle-icon");
-      
+
       wrapper.classList.toggle("sidebar-minimized");
-      
+
       if (wrapper.classList.contains("sidebar-minimized")) {
         icon.textContent = "chevron_right";
       } else {
@@ -2959,7 +3206,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       const root = document.documentElement;
       const lightBtn = document.getElementById("theme-light-btn");
       const darkBtn = document.getElementById("theme-dark-btn");
-      
+
       if (mode === "dark") {
         root.classList.add("dark");
         localStorage.setItem("theme", "dark");
@@ -2977,12 +3224,12 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       const list = document.getElementById("settings-owners-list");
       if (!list) return;
       list.innerHTML = "";
-      
+
       const owners = state.settings.fundOwners || [];
       owners.forEach(owner => {
         const card = document.createElement("div");
         card.className = "bg-surface-container-low dark:bg-inverse-surface border border-outline-variant/30 px-lg py-md rounded-xl flex justify-between items-center hover:shadow-sm transition-all";
-        
+
         let actionsHtml = "";
         if (!owner.isUtama) {
           actionsHtml = `
@@ -3013,7 +3260,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
     function openOwnerModal(editId = null, event = null) {
       if (event) event.stopPropagation();
       document.getElementById("owner-modal").classList.remove("hidden");
-      
+
       if (editId) {
         document.getElementById("owner-modal-title").innerText = "Edit Pemilik Dana";
         const owner = state.settings.fundOwners.find(o => o.id === editId);
@@ -3042,11 +3289,11 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       const id = document.getElementById("owner-form-id").value;
       const name = document.getElementById("owner-form-name").value.trim();
       const isUtama = document.getElementById("owner-form-utama").checked;
-      
+
       if (!name) return alert("Nama tidak boleh kosong.");
-      
+
       if (!state.settings.fundOwners) state.settings.fundOwners = [];
-      
+
       if (isUtama) {
         // Reset all other owners isUtama to false
         state.settings.fundOwners.forEach(o => o.isUtama = false);
@@ -3065,13 +3312,13 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
         };
         state.settings.fundOwners.push(newOwner);
       }
-      
+
       saveStateLocally();
       closeOwnerModal();
-      
+
       // Save settings to Sheets
       sendSheetsAction("saveSetting", { data: { Key: "fundOwners", Value: JSON.stringify(state.settings.fundOwners) } });
-      
+
       alert("Data pemilik dana berhasil disimpan!");
       populateDropdowns();
       renderAll();
@@ -3079,17 +3326,17 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
 
     function deleteOwner(id, event) {
       if (event) event.stopPropagation();
-      
+
       const owner = state.settings.fundOwners.find(o => o.id === id);
       if (!owner) return;
       if (owner.isUtama) return alert("Pemilik utama tidak boleh dihapus.");
-      
+
       if (confirm(`Apakah Anda yakin ingin menghapus pemilik dana '${owner.name}'? Semua transaksi terkait akan tetap tersimpan.`)) {
         state.settings.fundOwners = state.settings.fundOwners.filter(o => o.id !== id);
         saveStateLocally();
-        
+
         sendSheetsAction("saveSetting", { data: { Key: "fundOwners", Value: JSON.stringify(state.settings.fundOwners) } });
-        
+
         alert("Pemilik dana berhasil dihapus.");
         populateDropdowns();
         renderAll();
@@ -3100,14 +3347,14 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       const list = document.getElementById("settings-banks-list");
       if (!list) return;
       list.innerHTML = "";
-      
+
       const banks = state.settings.banks || [];
       banks.forEach(bank => {
         const card = document.createElement("div");
         card.className = "bg-surface-container-low dark:bg-inverse-surface border border-outline-variant/30 px-lg py-md rounded-xl flex justify-between items-center hover:shadow-sm transition-all";
-        
+
         const icon = categoryIcons[bank.name] || "credit_card";
-        
+
         card.innerHTML = `
           <div class="flex items-center gap-md">
             <div class="w-10 h-10 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary dark:text-on-primary-container">
@@ -3137,7 +3384,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
     function openBankModal(editId = null, event = null) {
       if (event) event.stopPropagation();
       document.getElementById("bank-modal").classList.remove("hidden");
-      
+
       if (editId) {
         document.getElementById("bank-modal-title").innerText = "Edit Rekening / Dompet";
         const bank = state.settings.banks.find(b => b.id === editId);
@@ -3167,11 +3414,11 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       const name = document.getElementById("bank-form-name").value.trim();
       const detail = document.getElementById("bank-form-detail").value.trim();
       const status = document.getElementById("bank-form-status").value;
-      
+
       if (!name || !detail) return alert("Nama dan detail tidak boleh kosong.");
-      
+
       if (!state.settings.banks) state.settings.banks = [];
-      
+
       if (id) {
         const idx = state.settings.banks.findIndex(b => b.id === id);
         if (idx !== -1) {
@@ -3186,13 +3433,13 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
         };
         state.settings.banks.push(newBank);
       }
-      
+
       saveStateLocally();
       closeBankModal();
-      
+
       // Save settings to Sheets
       sendSheetsAction("saveSetting", { data: { Key: "banks", Value: JSON.stringify(state.settings.banks) } });
-      
+
       alert("Data rekening berhasil disimpan!");
       populateDropdowns();
       renderAll();
@@ -3200,16 +3447,16 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
 
     function deleteBank(id, event) {
       if (event) event.stopPropagation();
-      
+
       const bank = state.settings.banks.find(b => b.id === id);
       if (!bank) return;
-      
+
       if (confirm(`Apakah Anda yakin ingin menghapus rekening '${bank.name}'? Semua transaksi terkait akan tetap tersimpan.`)) {
         state.settings.banks = state.settings.banks.filter(b => b.id !== id);
         saveStateLocally();
-        
+
         sendSheetsAction("saveSetting", { data: { Key: "banks", Value: JSON.stringify(state.settings.banks) } });
-        
+
         alert("Rekening berhasil dihapus.");
         populateDropdowns();
         renderAll();
@@ -3388,4 +3635,5 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
     window.saveAIKey = saveAIKey;
   </script>
 </body>
+
 </html>
