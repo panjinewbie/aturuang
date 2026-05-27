@@ -1283,6 +1283,8 @@
       "Mandiri": "account_balance",
       "BNI": "account_balance",
       "BRI": "account_balance",
+      "BJB": "account_balance",
+      "Blue BCA": "smartphone",
       "CIMB": "account_balance",
       "Tabungan": "savings",
       "Deposito": "savings"
@@ -1978,8 +1980,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
           <div class="absolute -top-6 bg-on-surface text-surface text-[10px] px-2 py-0.5 rounded shadow opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 whitespace-nowrap">
             ${formatRupiah(amount)}
           </div>
-          <div class="w-8 md:w-12 bg-primary/20 dark:bg-primary-container/20 group-hover:bg-primary/45 rounded-t-md transition-all duration-500 overflow-hidden" style="height: ${pct}%;">
-            <div class="w-full bg-primary dark:bg-primary-container h-full transform translate-y-full group-hover:translate-y-0 transition-transform duration-700"></div>
+          <div class="w-8 md:w-12 bg-primary dark:bg-primary-container rounded-t-md transition-all duration-500 shadow-sm group-hover:brightness-110" style="height: ${Math.max(2, pct)}%;">
           </div>
           <p class="text-label-sm text-on-surface-variant ${pct > 0 ? 'font-bold text-primary dark:text-on-primary-container' : ''}">${dayLabel}</p>
         `;
@@ -2394,11 +2395,9 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
             <span class="text-error font-bold">Keluar: ${formatRupiah(data.expense)}</span>
           </div>
           <div class="w-full flex justify-center items-end gap-1.5 h-48">
-            <div class="w-4.5 bg-primary/20 dark:bg-primary-container/20 group-hover:bg-primary/40 h-[${incPct}%] rounded-t-sm transition-all duration-500 overflow-hidden" style="height: ${incPct}%;">
-              <div class="w-full bg-primary dark:bg-primary-container h-full transform translate-y-full group-hover:translate-y-0 transition-transform duration-700"></div>
+            <div class="w-[18px] bg-primary dark:bg-primary-container rounded-t-sm transition-all duration-500 shadow-sm group-hover:brightness-110" style="height: ${Math.max(2, incPct)}%;">
             </div>
-            <div class="w-4.5 bg-error/20 group-hover:bg-error/45 h-[${expPct}%] rounded-t-sm transition-all duration-500 overflow-hidden" style="height: ${expPct}%;">
-              <div class="w-full bg-error h-full transform translate-y-full group-hover:translate-y-0 transition-transform duration-700"></div>
+            <div class="w-[18px] bg-error rounded-t-sm transition-all duration-500 shadow-sm group-hover:brightness-110" style="height: ${Math.max(2, expPct)}%;">
             </div>
           </div>
           <span class="font-bold text-label-sm text-on-surface-variant group-hover:text-on-surface transition-colors">${data.label}</span>
