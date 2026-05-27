@@ -1077,17 +1077,30 @@
                 <div class="space-y-xs">
                   <label class="text-label-sm font-semibold text-on-surface-variant" for="sync-sheets-url">Google Apps
                     Script URL</label>
-                  <input id="sync-sheets-url"
-                    class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface text-xs"
-                    type="text" placeholder="https://script.google.com/macros/s/.../exec">
+                  <div class="relative">
+                    <input id="sync-sheets-url"
+                      class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface text-xs pr-10"
+                      type="text" placeholder="https://script.google.com/macros/s/.../exec">
+                    <button type="button" onclick="openSheetsUrl()" title="Buka link di tab baru"
+                      class="absolute right-2 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors p-1 rounded">
+                      <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+                    </button>
+                  </div>
                 </div>
                 <div class="space-y-xs">
-                  <label class="text-label-sm font-semibold text-on-surface-variant" for="sync-sheets-token">Token
-                    Pengaman (Opsional)</label>
-                  <input id="sync-sheets-token"
-                    class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface text-xs"
-                    type="password" placeholder="Masukkan kata sandi...">
+                  <label class="text-label-sm font-semibold text-on-surface-variant" for="sync-sheets-link">Link Google
+                    Spreadsheet</label>
+                  <div class="relative">
+                    <input id="sync-sheets-link"
+                      class="w-full border-outline-variant rounded focus:border-primary focus:ring-primary text-body-md bg-surface-container-low dark:bg-surface text-xs pr-10"
+                      type="url" placeholder="https://docs.google.com/spreadsheets/d/...">
+                    <button type="button" onclick="openSpreadsheetLink()" title="Buka spreadsheet di tab baru"
+                      class="absolute right-2 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors p-1 rounded">
+                      <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+                    </button>
+                  </div>
                 </div>
+                <input type="hidden" id="sync-sheets-token">
                 <button onclick="saveSyncSettings()"
                   class="w-full py-md bg-primary text-on-primary rounded font-bold hover:opacity-90 transition-all text-label-md shadow-sm flex justify-center items-center gap-xs">
                   <span class="material-symbols-outlined">save</span> Simpan & Koneksikan
@@ -1097,32 +1110,6 @@
                   disabled>
                   <span class="material-symbols-outlined">sync_disabled</span> Putus Hubungan
                 </button>
-              </div>
-            </div>
-
-            <!-- PIN Lock Screen Settings Card -->
-            <div
-              class="bg-white dark:bg-inverse-surface border border-outline-variant/30 p-lg rounded-xl shadow-sm space-y-md">
-              <h3 class="text-headline-sm font-bold text-on-surface flex items-center gap-xs">
-                <span class="material-symbols-outlined text-primary">security</span> Keamanan Layar Kunci
-              </h3>
-              <div class="space-y-sm">
-                <div class="flex items-center justify-between">
-                  <span class="text-body-md font-medium text-on-surface">Aktifkan Layar Kunci</span>
-                  <input id="settings-lock-toggle" onchange="toggleLockFeature()"
-                    class="w-10 h-5 text-primary border-outline-variant rounded-full focus:ring-primary focus:ring-offset-0 cursor-pointer"
-                    type="checkbox">
-                </div>
-                <div id="settings-pin-section" class="space-y-xs">
-                  <label class="text-label-sm font-semibold text-on-surface-variant" for="settings-pin">Ganti PIN Baru
-                    (4-6 angka)</label>
-                  <input id="settings-pin"
-                    class="w-full text-center tracking-[1.5em] border-outline-variant rounded focus:border-primary focus:ring-primary font-bold text-headline-sm bg-surface-container-low dark:bg-surface"
-                    type="password" maxlength="6" value="1234">
-                  <button onclick="savePIN()"
-                    class="mt-2 w-full py-md bg-secondary text-on-secondary rounded font-bold hover:opacity-90 transition-all text-label-md shadow-sm">Ganti
-                    PIN Keamanan</button>
-                </div>
               </div>
             </div>
 
@@ -1451,6 +1438,8 @@
           if (userData.profileName) state.settings.profileName = userData.profileName;
           if (userData.sheetsUrl !== undefined) state.settings.sheetsUrl = userData.sheetsUrl;
           if (userData.sheetsToken !== undefined) state.settings.sheetsToken = userData.sheetsToken;
+          if (userData.sheetsLink !== undefined) state.settings.sheetsLink = userData.sheetsLink;
+          if (userData.aiKey !== undefined) state.settings.aiKey = userData.aiKey;
           console.log('[Firebase] Data pengguna berhasil dimuat:', userData.profileName);
         } else {
           console.log('[Firebase] Pengguna baru, belum ada data tersimpan.');
@@ -1532,7 +1521,7 @@
       "BRI": "account_balance",
       "BJB": "account_balance",
       "Blue BCA": "smartphone",
-      "By.u": "smartphone",
+      "by.u": "smartphone",
       "Tabungan": "savings",
       "Deposito": "savings"
     };
@@ -2656,24 +2645,14 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
     // ==================== SETTINGS & SYNC PANEL CONTROLLER ====================
     function renderSettings() {
       document.getElementById("settings-name").value = state.settings.profileName;
-      document.getElementById("settings-lock-toggle").checked = state.settings.authEnabled;
-      document.getElementById("settings-pin").value = state.settings.pinCode;
 
-      const pinSect = document.getElementById("settings-pin-section");
-      if (state.settings.authEnabled) {
-        pinSect.classList.remove("hidden");
-      } else {
-        pinSect.classList.add("hidden");
-      }
-
-      document.getElementById("sync-sheets-url").value = state.settings.sheetsUrl;
-      document.getElementById("sync-sheets-token").value = state.settings.sheetsToken;
+      document.getElementById("sync-sheets-url").value = state.settings.sheetsUrl || "";
+      document.getElementById("sync-sheets-link").value = state.settings.sheetsLink || "";
 
       const disconnectBtn = document.getElementById("disconnect-btn");
       if (disconnectBtn) disconnectBtn.disabled = !state.settings.sheetsUrl;
 
       // Render theme button highlight
-      const currentTheme = localStorage.getItem("theme") || "light";
       const isDark = document.documentElement.classList.contains("dark");
       setThemeMode(isDark ? "dark" : "light");
 
@@ -2735,18 +2714,20 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
 
     async function saveSyncSettings() {
       const url = document.getElementById("sync-sheets-url").value.trim();
-      const token = document.getElementById("sync-sheets-token").value.trim();
+      const link = document.getElementById("sync-sheets-link").value.trim();
 
       if (!url) return alert("URL Aplikasi Web Google Apps Script tidak boleh kosong.");
 
       state.settings.sheetsUrl = url;
-      state.settings.sheetsToken = token;
+      state.settings.sheetsToken = ""; // Token dihapus
+      state.settings.sheetsLink = link;
       saveStateLocally();
 
-      // Simpan URL Google Sheets ke Firebase RTDB per akun pengguna
+      // Simpan URL & link ke Firebase RTDB per akun pengguna
       await saveUserDataToFirebase({
         sheetsUrl: url,
-        sheetsToken: token,
+        sheetsToken: "",
+        sheetsLink: link,
         profileName: state.settings.profileName
       });
 
@@ -2758,6 +2739,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       if (confirm("Apakah Anda yakin ingin memutus koneksi Google Sheets? Aplikasi akan kembali ke penyimpanan lokal offline.")) {
         state.settings.sheetsUrl = "";
         state.settings.sheetsToken = "";
+        state.settings.sheetsLink = "";
         state.settings.lastSync = "";
         state.settings.collaborators = ["panji.newbie@gmail.com"];
         saveStateLocally();
@@ -2766,6 +2748,7 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
         await saveUserDataToFirebase({
           sheetsUrl: "",
           sheetsToken: "",
+          sheetsLink: "",
           profileName: state.settings.profileName
         });
 
@@ -3463,11 +3446,27 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
       }
     }
 
-    function saveAIKey() {
+    async function saveAIKey() {
       const key = document.getElementById("ai-api-key").value.trim();
       state.settings.aiKey = key;
       saveStateLocally();
+
+      // Simpan API Key ke Firebase RTDB per akun pengguna
+      await saveUserDataToFirebase({ aiKey: key });
+
       alert("API Key Financial Insight berhasil disimpan!");
+    }
+
+    function openSheetsUrl() {
+      const url = document.getElementById("sync-sheets-url").value.trim();
+      if (url) window.open(url, "_blank");
+      else alert("Masukkan URL Google Apps Script terlebih dahulu.");
+    }
+
+    function openSpreadsheetLink() {
+      const url = document.getElementById("sync-sheets-link").value.trim();
+      if (url) window.open(url, "_blank");
+      else alert("Masukkan link Google Spreadsheet terlebih dahulu.");
     }
 
     function populateDropdowns() {
@@ -3633,6 +3632,8 @@ function upsertRow(sheet, primaryKeyName, primaryKeyValue, rowData) {
     window.handleBankSubmit = handleBankSubmit;
     window.deleteBank = deleteBank;
     window.saveAIKey = saveAIKey;
+    window.openSheetsUrl = openSheetsUrl;
+    window.openSpreadsheetLink = openSpreadsheetLink;
   </script>
 </body>
 
